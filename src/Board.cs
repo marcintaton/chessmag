@@ -1,4 +1,6 @@
-namespace chessmag.src.defs
+using chessmag.src.defs;
+
+namespace chessmag.src
 {
     class Board
     {
