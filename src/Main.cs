@@ -11,13 +11,13 @@ namespace chessmag
 
             ConsoleView.PrintBitBoard(bitBoard);
 
-            bitBoard |= 1Ul << BBConversion.Board120to64[(int)Square.d2];
+            bitBoard |= 1Ul << BoardBaseConversion.Board120to64[(int)Square.d2];
 
             Console.WriteLine("D2 added");
 
             ConsoleView.PrintBitBoard(bitBoard);
 
-            bitBoard |= 1Ul << BBConversion.Board120to64[(int)Square.h2];
+            bitBoard |= 1Ul << BoardBaseConversion.Board120to64[(int)Square.h2];
 
             Console.WriteLine("H2 added");
 
