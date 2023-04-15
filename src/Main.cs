@@ -15,7 +15,6 @@ namespace chessmag
 
             bitBoard = BitBoard.UnsetBit(bitBoard, Square.e3);
 
-
             ConsoleView.PrintBitBoard(bitBoard);
         }
     }

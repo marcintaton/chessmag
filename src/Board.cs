@@ -16,7 +16,7 @@ namespace chessmag.src
         public int ply = 0;
         public int histPly = 0; // determining repetition
         public int castlingRights = 15; // 1111 - meaning all 4 casting rights are available
-        public ulong positionID = 0;
+        public ulong positionID = 0; // a unique position hash key 
 
         public MoveUndo[] moveHist = new MoveUndo[Constants.MaxPly];
 
