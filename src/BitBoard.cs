@@ -12,10 +12,16 @@ namespace chessmag.src
             58, 20, 37, 17, 36, 8
         };
 
-        public static ulong PushBit(ulong bitBoard, Square sq)
+        public static ulong SetBit(ulong bb, Square sq)
         {
-            bitBoard |= 1Ul << BoardBaseConversion.Board120to64[(int)sq];
-            return bitBoard;
+            bb |= 1Ul << BoardBaseConversion.Board120to64[(int)sq];
+            return bb;
+        }
+
+        public static ulong UnsetBit(ulong bb, Square sq)
+        {
+            bb &= ~(1Ul << BoardBaseConversion.Board120to64[(int)sq]);
+            return bb;
         }
 
         public static Tuple<ulong, int> PopBit(ulong bb)
@@ -26,11 +32,13 @@ namespace chessmag.src
             return Tuple.Create(bb, BitTable[(fold * 0x783a9b23) >> 26]);
         }
 
-        public static int GetBitCount(ulong bitBoard)
+        public static int GetBitCount(ulong bb)
         {
             int ctr;
-            for (ctr = 0; bitBoard != 0; ctr++, bitBoard &= bitBoard - 1) ;
+            for (ctr = 0; bb != 0; ctr++, bb &= bb - 1) ;
             return ctr;
         }
+
+
     }
 }

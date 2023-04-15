@@ -9,9 +9,12 @@ namespace chessmag
         {
             ulong bitBoard = 0UL;
 
-            bitBoard = BitBoard.PushBit(bitBoard, Square.d2);
-            bitBoard = BitBoard.PushBit(bitBoard, Square.g4);
-            bitBoard = BitBoard.PushBit(bitBoard, Square.e3);
+            bitBoard = BitBoard.SetBit(bitBoard, Square.d2);
+            bitBoard = BitBoard.SetBit(bitBoard, Square.g4);
+            bitBoard = BitBoard.SetBit(bitBoard, Square.e3);
+
+            bitBoard = BitBoard.UnsetBit(bitBoard, Square.e3);
+
 
             ConsoleView.PrintBitBoard(bitBoard);
         }
