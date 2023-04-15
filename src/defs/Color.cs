@@ -1,6 +1,6 @@
 namespace chessmag.src.defs
 {
-    enum Color : int
+    public enum Color : int
     {
         WHITE, BLACK, BOTH
     }

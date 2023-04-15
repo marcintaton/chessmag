@@ -6,6 +6,6 @@ namespace chessmag.src.defs
         public int castleRights;
         public int enPasSq;
         public int fiftyMoveCtr;
-        public UInt64 positionID;
+        public ulong positionID;
     }
 }

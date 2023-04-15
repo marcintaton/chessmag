@@ -7,17 +7,18 @@ namespace chessmag
     {
         private static void Main()
         {
-            UInt64 bitBoard = 0UL;
+            ulong bitBoard = 0UL;
 
             ConsoleView.PrintBitBoard(bitBoard);
 
-            bitBoard |= 1Ul << BoardBaseConversion.Board120to64[(int)Square.d2];
+            bitBoard = BitBoard.PushPiece(bitBoard, Square.d2);
 
             Console.WriteLine("D2 added");
 
             ConsoleView.PrintBitBoard(bitBoard);
 
-            bitBoard |= 1Ul << BoardBaseConversion.Board120to64[(int)Square.h2];
+            bitBoard = BitBoard.PushPiece(bitBoard, Square.g4);
+
 
             Console.WriteLine("H2 added");
 

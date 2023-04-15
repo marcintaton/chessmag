@@ -5,7 +5,7 @@ namespace chessmag.src
 {
     public static class ConsoleView
     {
-        public static void PrintBitBoard(UInt64 board)
+        public static void PrintBitBoard(ulong board)
         {
             Console.WriteLine();
 

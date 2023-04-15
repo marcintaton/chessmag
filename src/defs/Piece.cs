@@ -1,6 +1,6 @@
 namespace chessmag.src.defs
 {
-    enum Piece
+    public enum Piece
     {
         NONE,
         P, R, N, B, Q, K,

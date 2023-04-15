@@ -6,7 +6,7 @@ namespace chessmag.src
     {
         // general position info
         public int[] pieces = new int[Constants.BoardSize];
-        public UInt64[] pawns = new UInt64[3]; // for white, black and both
+        public ulong[] pawns = new ulong[3]; // for white, black and both
         public int[] kingSq = new int[2]; // field indices for kings
 
         // position specifics
@@ -16,7 +16,7 @@ namespace chessmag.src
         public int ply = 0;
         public int histPly = 0; // determining repetition
         public int castlingRights = 15; // 1111 - meaning all 4 casting rights are available
-        public UInt64 positionID = 0;
+        public ulong positionID = 0;
 
         public MoveUndo[] moveHist = new MoveUndo[Constants.MaxPly];
 
