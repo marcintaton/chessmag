@@ -9,22 +9,11 @@ namespace chessmag
         {
             ulong bitBoard = 0UL;
 
-            ConsoleView.PrintBitBoard(bitBoard);
-
-            bitBoard = BitBoard.PushPiece(bitBoard, Square.d2);
-
-            Console.WriteLine("D2 added");
+            bitBoard = BitBoard.PushBit(bitBoard, Square.d2);
+            bitBoard = BitBoard.PushBit(bitBoard, Square.g4);
+            bitBoard = BitBoard.PushBit(bitBoard, Square.e3);
 
             ConsoleView.PrintBitBoard(bitBoard);
-
-            bitBoard = BitBoard.PushPiece(bitBoard, Square.g4);
-
-
-            Console.WriteLine("H2 added");
-
-            ConsoleView.PrintBitBoard(bitBoard);
-
-
         }
     }
 }

@@ -6,9 +6,9 @@ namespace chessmag.src
     // Board Base Conversion
     public static class BoardBaseConversion
     {
-        public static int[] Board64to120 { get; set; } = Enumerable.Repeat(120, 64).ToArray();
+        public static int[] Board64to120 { get; } = Enumerable.Repeat(120, 64).ToArray();
 
-        public static int[] Board120to64 { get; set; } = Enumerable.Repeat(65, Constants.BoardSize).ToArray();
+        public static int[] Board120to64 { get; } = Enumerable.Repeat(65, Constants.BoardSize).ToArray();
 
         public static int FrTo64(int file, int rank)
         {
