@@ -15,7 +15,10 @@ namespace chessmag.src
         public int fiftyMoveCtr = 0;
         public int ply = 0;
         public int histPly = 0; // determining repetition
+        public int castlingRights = 15; // 1111 - meaning all 4 casting rights are available
         public UInt64 positionID = 0;
+
+        public MoveUndo[] moveHist = new MoveUndo[Constants.MaxPly];
 
         // how many pieces of each tyle are on the board
         // separated into non pawns, major and minor pieces
