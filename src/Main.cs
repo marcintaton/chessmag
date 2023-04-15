@@ -1,4 +1,5 @@
 ﻿using chessmag.src;
+using chessmag.src.defs;
 
 namespace chessmag
 {
@@ -6,7 +7,23 @@ namespace chessmag
     {
         private static void Main()
         {
-            Console.WriteLine(BoardBaseConversion.Board64to120[1]);
+            UInt64 bitBoard = 0UL;
+
+            ConsoleView.PrintBitBoard(bitBoard);
+
+            bitBoard |= 1Ul << BBConversion.Board120to64[(int)Square.d2];
+
+            Console.WriteLine("D2 added");
+
+            ConsoleView.PrintBitBoard(bitBoard);
+
+            bitBoard |= 1Ul << BBConversion.Board120to64[(int)Square.h2];
+
+            Console.WriteLine("H2 added");
+
+            ConsoleView.PrintBitBoard(bitBoard);
+
+
         }
     }
 }
