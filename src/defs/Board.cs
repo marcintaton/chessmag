@@ -34,7 +34,7 @@ namespace chessmag.src
         // 13 - types of pieces 
         // 20 - max number of given piece type (due to promotion and capturing with crazyhouse rules)
         // normally 10 instead of 20
-        public int[,] piceList = new int[13, 20];
+        public int[,] piceList = new int[13, 10];
 
         public Board()
         {
