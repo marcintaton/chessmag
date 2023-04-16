@@ -2,8 +2,11 @@ namespace chessmag.src.defs
 {
     public enum Piece
     {
-        NONE,
+        // white pieces
         P, R, N, B, Q, K,
-        p, r, n, b, q, k
+        // black pieces
+        p, r, n, b, q, k,
+        //empty
+        NONE,
     }
 }

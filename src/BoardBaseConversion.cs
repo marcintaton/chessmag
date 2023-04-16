@@ -4,7 +4,7 @@ using File = chessmag.src.defs.File;
 namespace chessmag.src
 {
     // Board Base Conversion
-    public static class BoardBaseConversion
+    public readonly struct BoardBaseConversion
     {
         public static int[] Board64to120 { get; } = Enumerable.Repeat(120, 64).ToArray();
 

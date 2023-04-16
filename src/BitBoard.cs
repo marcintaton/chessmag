@@ -2,7 +2,7 @@ using chessmag.src.defs;
 
 namespace chessmag.src
 {
-    public static class BitBoard
+    public readonly struct BitBoard
     {
         // BitBoard magic. Literally
         public static readonly int[] BitTable = {

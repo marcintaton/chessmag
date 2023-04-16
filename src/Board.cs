@@ -2,7 +2,7 @@ using chessmag.src.defs;
 
 namespace chessmag.src
 {
-    class Board
+    public struct Board
     {
         // general position info
         public int[] pieces = new int[Constants.BoardSize];
@@ -15,7 +15,7 @@ namespace chessmag.src
         public int fiftyMoveCtr = 0;
         public int ply = 0;
         public int histPly = 0; // determining repetition
-        public int castlingRights = 15; // 1111 - meaning all 4 casting rights are available
+        public int castlingRights = (int)CastlingRights.ALL; // 1111 - meaning all 4 casting rights are available
         public ulong positionID = 0; // a unique position hash key 
 
         public MoveUndo[] moveHist = new MoveUndo[Constants.MaxPly];
@@ -32,5 +32,9 @@ namespace chessmag.src
         // 20 - max number of given piece type (due to promotion and capturing with crazyhouse rules)
         // normally 10 instead of 20
         public int[,] piceList = new int[13, 20];
+
+        public Board()
+        {
+        }
     }
 }

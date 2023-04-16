@@ -1,5 +1,6 @@
 ﻿using chessmag.src;
 using chessmag.src.defs;
+using chessmag.src.utils;
 
 namespace chessmag
 {
