@@ -3,7 +3,7 @@ using chessmag.src.defs;
 
 namespace chessmag.src.utils
 {
-    public readonly struct PositionHash
+    public static class PositionHash
     {
         public static readonly ulong[,] PieceKeys = new ulong[13, 120];
         public static readonly ulong SideKey = 0;

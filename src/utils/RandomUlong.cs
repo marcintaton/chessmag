@@ -1,6 +1,6 @@
 namespace chessmag.src.utils
 {
-    public readonly struct RandomUlong
+    public static class RandomUlong
     {
         private static readonly Random rand;
 

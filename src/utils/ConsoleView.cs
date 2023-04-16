@@ -3,7 +3,7 @@ using File = chessmag.src.defs.File;
 
 namespace chessmag.src
 {
-    public struct ConsoleView
+    public static class ConsoleView
     {
         public static void PrintBitBoard(ulong board)
         {
