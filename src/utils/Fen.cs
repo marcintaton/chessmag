@@ -122,7 +122,7 @@ namespace chessmag.src.utils
 
             pos.positionID = PositionHash.Get(pos);
 
-            return pos;
+            return Materials.UpdateMaterials(pos);
         }
     }
 }

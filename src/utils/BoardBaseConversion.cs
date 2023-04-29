@@ -10,6 +10,9 @@ namespace chessmag.src
 
         public static int[] Board120to64 { get; } = Enumerable.Repeat(65, Constants.BoardSize).ToArray();
 
+        public static int[] Sq120ToFile { get; } = Enumerable.Repeat(65, Constants.BoardSize).ToArray();
+        public static int[] Sq120ToRank { get; } = Enumerable.Repeat(65, Constants.BoardSize).ToArray();
+
         public static int FrTo64(int file, int rank)
         {
             return file + (rank * 8);
@@ -31,6 +34,8 @@ namespace chessmag.src
                     int sq64 = FrTo64(file, rank);
                     Board64to120[sq64] = sq120;
                     Board120to64[sq120] = sq64;
+                    Sq120ToFile[sq120] = file;
+                    Sq120ToRank[sq120] = rank;
                 }
             }
         }

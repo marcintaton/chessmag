@@ -64,6 +64,7 @@ namespace chessmag.src
             Console.WriteLine("Ply: " + board.ply);
             Console.WriteLine("Fifty moves: " + board.fiftyMoveCtr);
             Console.WriteLine("Position ID: " + Convert.ToString((long)board.positionID, 16).ToUpper());
+            Console.WriteLine("Materials: white - " + board.materials[(int)Color.WHITE] + "; black - " + board.materials[(int)Color.BLACK] + ";");
             Console.WriteLine();
             Console.WriteLine();
         }

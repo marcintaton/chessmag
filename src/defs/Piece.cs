@@ -9,4 +9,29 @@ namespace chessmag.src.defs
         //empty
         NONE,
     }
+
+    public static class PieceData
+    {
+        public static readonly bool[] isPieceBig = new bool[] { false, true, true, true, true, true, false, true, true, true, true, true, false };
+        public static readonly bool[] isPieceMaj = new bool[] { false, true, false, false, true, true, false, true, false, false, true, true, false };
+        public static readonly bool[] isPieceMin = new bool[] { false, false, true, true, false, false, false, false, true, true, false, false, false };
+        public static readonly int[] pieceColor = new int[]
+        {
+            (int)Color.WHITE,
+            (int)Color.WHITE,
+            (int)Color.WHITE,
+            (int)Color.WHITE,
+            (int)Color.WHITE,
+            (int)Color.WHITE,
+            (int)Color.BLACK,
+            (int)Color.BLACK,
+            (int)Color.BLACK,
+            (int)Color.BLACK,
+            (int)Color.BLACK,
+            (int)Color.BLACK,
+            (int)Color.BOTH,
+        };
+
+        public static readonly int[] pieceValue = new int[] { 100, 500, 300, 300, 900, 10000, 100, 500, 300, 300, 900, 10000, 0 };
+    }
 }

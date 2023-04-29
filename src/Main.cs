@@ -22,17 +22,17 @@ namespace chessmag
 
             ConsoleView.printBoard(b);
 
-            b = Fen.Parse(Constants.TestFEN1);
+            // b = Fen.Parse(Constants.TestFEN1);
 
-            ConsoleView.printBoard(b);
+            // ConsoleView.printBoard(b);
 
-            b = Fen.Parse(Constants.TestFEN2);
+            // b = Fen.Parse(Constants.TestFEN2);
 
-            ConsoleView.printBoard(b);
+            // ConsoleView.printBoard(b);
 
-            b = Fen.Parse(Constants.TestFEN3);
+            // b = Fen.Parse(Constants.TestFEN3);
 
-            ConsoleView.printBoard(b);
+            // ConsoleView.printBoard(b);
 
         }
     }

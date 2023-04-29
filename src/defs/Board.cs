@@ -11,12 +11,17 @@ namespace chessmag.src
         public int[] pieces = new int[Constants.BoardSize];
         public int[] kingSq = new int[2]; // field indices for kings
         public ulong[] pawns = new ulong[3]; // for white, black and both
-        public int[] chessmenNum = new int[3]; // big pieces - non pawns
-        public int[] majorPcsNum = new int[3]; // rooks and queens
-        public int[] minorPcsNum = new int[3]; // bishops and knights
+        public int[] bigPceNum = new int[2]; // big pieces - non pawns - bigPce
+        public int[] majorPcsNum = new int[2]; // rooks and queens - majPce
+        public int[] minorPcsNum = new int[2]; // bishops and knights - minPce
+        public int[] materials = new int[2]; // material score fo both sides
         public int[] piecesNum = new int[13];
 
-
+        // piece list - contains positions for every possible piece
+        // 13 - types of pieces 
+        // 20 - max number of given piece type (due to promotion and capturing with crazyhouse rules)
+        // normally 10 instead of 20
+        public int[,] pieceList = new int[13, 10];
 
         // position specifics
         public int sideToMove = (int)Color.WHITE;
@@ -30,24 +35,21 @@ namespace chessmag.src
         public MoveUndo[] moveHist = new MoveUndo[Constants.MaxPly];
 
 
-        // piece list - contains positions for every possible piece
-        // 13 - types of pieces 
-        // 20 - max number of given piece type (due to promotion and capturing with crazyhouse rules)
-        // normally 10 instead of 20
-        public int[,] piceList = new int[13, 10];
+
 
         public Board()
         {
             Array.Fill(pieces, (int)Square.NONE);
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 2; i++)
             {
-                chessmenNum[i] = 0;
+                bigPceNum[i] = 0;
                 majorPcsNum[i] = 0;
                 minorPcsNum[i] = 0;
-                pawns[i] = 0UL;
+                materials[i] = 0;
             }
 
+            Array.Fill(pawns, 0UL);
             Array.Fill(piecesNum, 0);
             Array.Fill(kingSq, (int)Square.NONE);
 
