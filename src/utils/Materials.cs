@@ -29,6 +29,20 @@ namespace chessmag.src.utils
 
                     if (piece == (int)Piece.K) board.kingSq[(int)Color.WHITE] = square;
                     else if (piece == (int)Piece.k) board.kingSq[(int)Color.BLACK] = square;
+
+                    if (piece == (int)Piece.P)
+                    {
+                        board.pawns[(int)Color.WHITE] = BitBoard.SetBit(board.pawns[(int)Color.WHITE], square);
+                        board.pawns[(int)Color.BOTH] = BitBoard.SetBit(board.pawns[(int)Color.BOTH], square);
+                    }
+                    if (piece == (int)Piece.p)
+                    {
+                        Console.WriteLine(square);
+                        Console.WriteLine(BoardBaseConversion.Board120to64[square]);
+                        Console.WriteLine((Square)BoardBaseConversion.Board120to64[square]);
+                        board.pawns[(int)Color.BLACK] = BitBoard.SetBit(board.pawns[(int)Color.BLACK], square);
+                        board.pawns[(int)Color.BOTH] = BitBoard.SetBit(board.pawns[(int)Color.BOTH], square);
+                    }
                 }
             }
 

@@ -12,15 +12,27 @@ namespace chessmag.src
             58, 20, 37, 17, 36, 8
         };
 
-        public static ulong SetBit(ulong bb, Square sq)
+        public static ulong SetBit(ulong bb, int sq)
         {
-            bb |= 1Ul << BoardBaseConversion.Board120to64[(int)sq];
+            bb |= 1Ul << BoardBaseConversion.Board120to64[sq];
             return bb;
         }
 
-        public static ulong UnsetBit(ulong bb, Square sq)
+        public static ulong SetBit64(ulong bb, int sq)
         {
-            bb &= ~(1Ul << BoardBaseConversion.Board120to64[(int)sq]);
+            bb |= 1Ul << sq;
+            return bb;
+        }
+
+        public static ulong UnsetBit(ulong bb, int sq)
+        {
+            bb &= ~(1Ul << BoardBaseConversion.Board120to64[sq]);
+            return bb;
+        }
+
+        public static ulong UnsetBit64(ulong bb, int sq)
+        {
+            bb &= ~(1Ul << sq);
             return bb;
         }
 

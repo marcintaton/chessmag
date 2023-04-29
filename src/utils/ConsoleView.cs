@@ -11,6 +11,8 @@ namespace chessmag.src
 
             for (int rank = (int)Rank._8; rank >= (int)Rank._1; --rank)
             {
+                Console.Write(rank + 1 + "  ");
+
                 for (int file = (int)File.a; file <= (int)File.h; ++file)
                 {
                     int sq120 = BoardBaseConversion.FrTo120(file, rank);
@@ -26,6 +28,8 @@ namespace chessmag.src
                 }
                 Console.WriteLine();
             }
+            Console.WriteLine();
+            Console.WriteLine("   abcdefgh");
             Console.WriteLine();
         }
 

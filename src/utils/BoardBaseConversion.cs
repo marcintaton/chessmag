@@ -38,6 +38,13 @@ namespace chessmag.src
                     Sq120ToRank[sq120] = rank;
                 }
             }
+
+            // for (int i = 0; i < 64; i++)
+            // {
+            //     Console.Write(Board64to120[i].ToString().PadRight(3));
+
+            //     if (i % 8 == 7) Console.WriteLine();
+            // }
         }
     }
 }
