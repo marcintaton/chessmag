@@ -15,6 +15,7 @@ namespace chessmag.src
             return file + (rank * 8);
         }
 
+        // fr2sq
         public static int FrTo120(int file, int rank)
         {
             return 21 + file + (rank * 10);

@@ -4,10 +4,10 @@ namespace chessmag.src.defs
     public enum CastlingRights : int
     {
         NONE = 0,
-        WK = 1,
-        WQ = 2,
-        BK = 4,
-        BQ = 8,
+        K = 1,
+        Q = 2,
+        k = 4,
+        q = 8,
         ALL = 15
     }
 }

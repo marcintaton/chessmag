@@ -64,7 +64,7 @@ namespace chessmag.src
             // piece list reset comes later
         }
 
-        public static Board NewBoard()
+        public static Board Clear()
         {
             return new();
         }
