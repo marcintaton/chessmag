@@ -30,5 +30,15 @@ namespace chessmag.defs
             moves[count].score = 0;
             count++;
         }
+
+        public void AddPawnCapture(int move)
+        {
+
+        }
+
+        public void AddPawnMove(int move)
+        {
+
+        }
     }
 }
