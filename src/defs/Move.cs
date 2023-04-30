@@ -17,8 +17,8 @@ namespace chessmag.defs
         private const int castleFlag = 0x1000000;
         private const int captureFlag = 0x7C000;
         private const int promotionFlag = 0xF00000;
-        private readonly int move;
-        private readonly int score;
+        public int move;
+        public int score;
 
         public Move(int move, int score)
         {
