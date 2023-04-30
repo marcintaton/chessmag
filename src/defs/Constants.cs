@@ -8,5 +8,11 @@ namespace chessmag.defs
         public const string TestFEN1 = "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1";
         public const string TestFEN2 = "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2";
         public const string TestFEN3 = "r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 1";
+        public const string TestFEN4 = "rnbqkbnr/ppp1pppp/8/3p4/4P3/8/PPPP1PPP/RNBQKBNR w KQkq d6 0 2";
+        public const string TestFEN5 = "rnbqkb1r/pppppppp/5n2/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 1 2";
+        public const string TestFEN6 = "1n1qkbnr/1pp1pppp/5r2/p2P1b2/8/PP1Q4/2PP1PPP/RNB1KBNR b KQk - 2 6";
+
+
+
     }
 }

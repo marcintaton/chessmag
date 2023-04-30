@@ -33,5 +33,10 @@ namespace chessmag.defs
         };
 
         public static readonly int[] pieceValue = new int[] { 100, 500, 300, 300, 900, 10000, 100, 500, 300, 300, 900, 10000, 0 };
+
+        public static readonly bool[] isKnight = new bool[] { false, false, true, false, false, false, false, false, true, false, false, false, false };
+        public static readonly bool[] isKing = new bool[] { false, false, false, false, false, true, false, false, false, false, false, true, false };
+        public static readonly bool[] isRookQueen = new bool[] { false, true, false, false, true, false, false, true, false, false, true, false, false };
+        public static readonly bool[] isBishopQueen = new bool[] { false, false, false, true, true, false, false, false, false, true, true, false, false };
     }
 }

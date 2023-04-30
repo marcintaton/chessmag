@@ -18,11 +18,15 @@ namespace chessmag
 
             // ConsoleView.PrintBitBoard(bitBoard);
 
-            Board b = Fen.Parse(Constants.TestFEN3);
+            Board b = Fen.Parse(Constants.TestFEN6);
 
             ConsoleView.printBoard(b);
 
             Assertions.CheckBoard(b);
+
+            var result = Attack.IsSquareAttacked((int)Square.d1, (int)Color.WHITE, b);
+
+            Console.WriteLine("Attack result - " + result);
         }
     }
 }

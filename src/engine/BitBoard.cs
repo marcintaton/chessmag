@@ -24,15 +24,15 @@ namespace chessmag.engine
             return bb;
         }
 
-        public static ulong UnsetBit(ulong bb, int sq)
+        public static ulong UnsetBit(ulong bb, int sq120)
         {
-            bb &= ~(1Ul << BoardBaseConversion.Board120to64[sq]);
+            bb &= ~(1Ul << BoardBaseConversion.Board120to64[sq120]);
             return bb;
         }
 
-        public static ulong UnsetBit64(ulong bb, int sq)
+        public static ulong UnsetBit64(ulong bb, int sq64)
         {
-            bb &= ~(1Ul << sq);
+            bb &= ~(1Ul << sq64);
             return bb;
         }
 

@@ -24,6 +24,11 @@ namespace chessmag.engine
             return 21 + file + (rank * 10);
         }
 
+        public static bool IsOffboard(int sq120)
+        {
+            return Board120to64[sq120] == 65;
+        }
+
         static BoardBaseConversion()
         {
             for (int rank = (int)Rank._1; rank <= (int)Rank._8; ++rank)
