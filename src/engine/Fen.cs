@@ -21,7 +21,7 @@ namespace chessmag.engine
 
             foreach (var part in splitFEN)
             {
-                Debug.Assert(part != "");
+                Debug.Assert(part != "", "Part of FEN is missing");
             }
 
             Board pos = Board.Clear();
@@ -83,7 +83,7 @@ namespace chessmag.engine
             }
 
             // side to move
-            Debug.Assert(splitFEN[1] == "w" || splitFEN[1] == "b");
+            Debug.Assert(splitFEN[1] == "w" || splitFEN[1] == "b", "Side to move in FEN is not 'w' or 'b'");
             pos.sideToMove = splitFEN[1] == "w" ? (int)Color.WHITE : (int)Color.BLACK;
 
             // castling
@@ -120,7 +120,7 @@ namespace chessmag.engine
             // move counter 
             pos.ply = ((int.Parse(splitFEN[5]) - 1) * 2) + pos.sideToMove;
 
-            pos.positionID = PositionHash.Get(pos);
+            pos.positionHash = PositionHash.Get(pos);
 
             return Materials.UpdateMaterials(pos);
         }

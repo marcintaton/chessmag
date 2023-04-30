@@ -22,9 +22,9 @@ namespace chessmag
 
             ConsoleView.printBoard(b);
 
-            ConsoleView.PrintBitBoard(b.pawns[0]);
-            ConsoleView.PrintBitBoard(b.pawns[1]);
-            ConsoleView.PrintBitBoard(b.pawns[2]);
+            b.positionHash ^= 1UL << 20;
+
+            Assertions.CheckBoard(b);
 
         }
     }

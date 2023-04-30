@@ -50,7 +50,5 @@ namespace chessmag.engine
             for (ctr = 0; bb != 0; ctr++, bb &= bb - 1) ;
             return ctr;
         }
-
-
     }
 }

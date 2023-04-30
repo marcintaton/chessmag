@@ -30,16 +30,13 @@ namespace chessmag.engine
         public int ply = 0;
         public int histPly = 0; // determining repetition
         public int castlingRights = (int)CastlingRights.NONE; // 15 - 1111 - meaning all 4 casting rights are available
-        public ulong positionID = 0; // a unique position hash key 
+        public ulong positionHash = 0; // a unique position hash key 
 
         public MoveUndo[] moveHist = new MoveUndo[Constants.MaxPly];
 
-
-
-
         public Board()
         {
-            Array.Fill(pieces, (int)Square.NONE);
+            Array.Fill(pieces, (int)Piece.NONE);
 
             for (int i = 0; i < 2; i++)
             {
@@ -59,7 +56,7 @@ namespace chessmag.engine
             ply = 0;
             histPly = 0;
             castlingRights = (int)CastlingRights.NONE;
-            positionID = 0UL;
+            positionHash = 0UL;
 
             moveHist = new MoveUndo[Constants.MaxPly];
 
