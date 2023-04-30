@@ -5,10 +5,8 @@ namespace chessmag.src.utils
 {
     public static class Materials
     {
-
         public static Board UpdateMaterials(Board board)
         {
-
             for (int i = 0; i < Constants.BoardSize; i++)
             {
                 int square = i;
@@ -37,9 +35,6 @@ namespace chessmag.src.utils
                     }
                     if (piece == (int)Piece.p)
                     {
-                        Console.WriteLine(square);
-                        Console.WriteLine(BoardBaseConversion.Board120to64[square]);
-                        Console.WriteLine((Square)BoardBaseConversion.Board120to64[square]);
                         board.pawns[(int)Color.BLACK] = BitBoard.SetBit(board.pawns[(int)Color.BLACK], square);
                         board.pawns[(int)Color.BOTH] = BitBoard.SetBit(board.pawns[(int)Color.BOTH], square);
                     }
