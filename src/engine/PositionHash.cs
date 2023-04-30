@@ -39,7 +39,9 @@ namespace chessmag.engine
                 int piece = b.pieces[sq];
                 if (piece != (int)Square.NONE && piece != (int)Piece.NONE)
                 {
-                    Debug.Assert(piece <= (int)Piece.k && piece >= (int)Piece.P);
+                    Debug.Assert(
+                        piece <= (int)Piece.k && piece >= (int)Piece.P,
+                        "Invalid piece found. Found: " + piece);
                     keyOut ^= PieceKeys[piece, sq];
                 }
             }
@@ -51,11 +53,15 @@ namespace chessmag.engine
 
             if (b.enPasSq != (int)Square.NONE)
             {
-                Debug.Assert(b.enPasSq >= 0 && b.enPasSq <= Constants.BoardSize);
+                Debug.Assert(
+                    b.enPasSq >= 0 && b.enPasSq <= Constants.BoardSize,
+                    "En passant square found outside of the board. 120 based square id is: " + b.enPasSq);
                 keyOut ^= PieceKeys[(int)Piece.NONE, b.enPasSq];
             }
 
-            Debug.Assert(b.castlingRights >= (int)CastlingRights.NONE && b.castlingRights <= (int)CastlingRights.ALL);
+            Debug.Assert(
+                b.castlingRights >= (int)CastlingRights.NONE && b.castlingRights <= (int)CastlingRights.ALL,
+                "Invalid Castling Rights. Found: " + b.castlingRights);
             keyOut ^= CastlingKeys[b.castlingRights];
 
             return keyOut;

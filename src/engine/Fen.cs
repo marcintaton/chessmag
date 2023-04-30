@@ -21,7 +21,9 @@ namespace chessmag.engine
 
             foreach (var part in splitFEN)
             {
-                Debug.Assert(part != "", "Part of FEN is missing");
+                Debug.Assert(
+                    part != "",
+                    "Part of FEN is missing. Fen is: " + fen);
             }
 
             Board pos = Board.Clear();
@@ -83,7 +85,9 @@ namespace chessmag.engine
             }
 
             // side to move
-            Debug.Assert(splitFEN[1] == "w" || splitFEN[1] == "b", "Side to move in FEN is not 'w' or 'b'");
+            Debug.Assert(
+                splitFEN[1] == "w" || splitFEN[1] == "b",
+                "Side to move in FEN is invalid. Char found: " + splitFEN[1]);
             pos.sideToMove = splitFEN[1] == "w" ? (int)Color.WHITE : (int)Color.BLACK;
 
             // castling
@@ -100,7 +104,9 @@ namespace chessmag.engine
                     }
                 }
             }
-            Debug.Assert(pos.castlingRights >= (int)CastlingRights.NONE && pos.castlingRights <= (int)CastlingRights.ALL);
+            Debug.Assert(
+                pos.castlingRights >= (int)CastlingRights.NONE && pos.castlingRights <= (int)CastlingRights.ALL,
+                "Casting rights outside of expected bounds. Castling rights: " + pos.castlingRights);
 
             // en passant
             if (splitFEN[3] != "-")
@@ -108,8 +114,12 @@ namespace chessmag.engine
                 int enpas_file = splitFEN[3][0] - 'a';
                 int enpas_rank = splitFEN[3][1] - '1';
 
-                Debug.Assert(enpas_file >= (int)File.a && enpas_file <= (int)File.h);
-                Debug.Assert(enpas_rank >= (int)Rank._1 && enpas_rank <= (int)Rank._8);
+                Debug.Assert(
+                    enpas_file >= (int)File.a && enpas_file <= (int)File.h,
+                    "En passant square found outside of the board on file: " + enpas_file);
+                Debug.Assert(
+                    enpas_rank >= (int)Rank._1 && enpas_rank <= (int)Rank._8,
+                    "En passant square found outside of the board on rank: " + enpas_rank);
 
                 pos.enPasSq = BoardBaseConversion.FrTo120(enpas_file, enpas_rank);
             }

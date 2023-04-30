@@ -22,10 +22,7 @@ namespace chessmag
 
             ConsoleView.printBoard(b);
 
-            b.positionHash ^= 1UL << 20;
-
             Assertions.CheckBoard(b);
-
         }
     }
 }

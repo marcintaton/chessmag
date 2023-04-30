@@ -13,7 +13,6 @@ namespace chessmag.engine
                 int piece = board.pieces[square];
                 if (piece != (int)Piece.NONE && piece != (int)Square.NONE)
                 {
-                    Debug.Assert(piece <= 12);
                     int color = PieceData.pieceColor[piece];
                     if (PieceData.isPieceBig[piece]) board.bigPceNum[color]++;
                     if (PieceData.isPieceMaj[piece]) board.majorPcsNum[color]++;
