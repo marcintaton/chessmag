@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using chessmag.defs;
+using chessmag.utils;
 
 namespace chessmag.engine
 {
@@ -17,12 +18,9 @@ namespace chessmag.engine
         public static bool IsSquareAttacked(int sq120, int side, Board board)
         {
 
-            Debug.Assert(
-                side == (int)Color.WHITE || side == (int)Color.BLACK,
-                "Invalid attacking side. Got: " + side);
-            Debug.Assert(
-                sq120 >= BoardBaseConversion.Board64to120[0] && sq120 <= BoardBaseConversion.Board64to120[63],
-                "Attacked square out of the board. Got: " + sq120);
+            Assertions.SideValid(side);
+            Assertions.SqOnBoard(sq120);
+            Assertions.CheckBoard(board);
 
             // pawns' attacks
             if (side == (int)Color.WHITE)

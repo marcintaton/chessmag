@@ -23,11 +23,6 @@ namespace chessmag
             ConsoleView.printBoard(b);
 
             Assertions.CheckBoard(b);
-
-            var move = new Move(34, 36, (int)Piece.R, (int)Piece.p, true);
-
-            Console.WriteLine(move.IsEnPas());
-            Console.WriteLine(move.ToString());
         }
     }
 }

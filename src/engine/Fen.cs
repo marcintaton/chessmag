@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using chessmag.defs;
+using chessmag.utils;
 using File = chessmag.defs.File;
 
 namespace chessmag.engine
@@ -17,14 +18,11 @@ namespace chessmag.engine
             // 3 - enpas square
             // 4 - 50 move counter
             // 5 - full move counter 
+
+
             string[] splitFEN = fen.Split(' ');
 
-            foreach (var part in splitFEN)
-            {
-                Debug.Assert(
-                    part != "",
-                    "Part of FEN is missing. Fen is: " + fen);
-            }
+            Assertions.FenPartsNonEmpty(fen);
 
             Board pos = Board.Clear();
 
@@ -85,9 +83,7 @@ namespace chessmag.engine
             }
 
             // side to move
-            Debug.Assert(
-                splitFEN[1] == "w" || splitFEN[1] == "b",
-                "Side to move in FEN is invalid. Char found: " + splitFEN[1]);
+            Assertions.FenSideValid(splitFEN[1]);
             pos.sideToMove = splitFEN[1] == "w" ? (int)Color.WHITE : (int)Color.BLACK;
 
             // castling
@@ -104,9 +100,8 @@ namespace chessmag.engine
                     }
                 }
             }
-            Debug.Assert(
-                pos.castlingRights >= (int)CastlingRights.NONE && pos.castlingRights <= (int)CastlingRights.ALL,
-                "Casting rights outside of expected bounds. Castling rights: " + pos.castlingRights);
+
+            Assertions.CastlingRightsValid(pos.castlingRights);
 
             // en passant
             if (splitFEN[3] != "-")
@@ -114,12 +109,8 @@ namespace chessmag.engine
                 int enpas_file = splitFEN[3][0] - 'a';
                 int enpas_rank = splitFEN[3][1] - '1';
 
-                Debug.Assert(
-                    enpas_file >= (int)File.a && enpas_file <= (int)File.h,
-                    "En passant square found outside of the board on file: " + enpas_file);
-                Debug.Assert(
-                    enpas_rank >= (int)Rank._1 && enpas_rank <= (int)Rank._8,
-                    "En passant square found outside of the board on rank: " + enpas_rank);
+                Assertions.FileRankValid(enpas_file);
+                Assertions.FileRankValid(enpas_rank);
 
                 pos.enPasSq = BoardBaseConversion.FrTo120(enpas_file, enpas_rank);
             }

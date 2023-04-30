@@ -5,15 +5,14 @@ using chessmag.engine;
 
 namespace chessmag.utils
 {
-    public static class Assertions
+    public static partial class Assertions
     {
         // this function is only called in debug environment, through Debug.Assert
         // in itself it also runs Debug.Assert statements
         // thus it always returns true if it reaches end of the function
-        public static bool CheckBoard(Board board)
+        public static void CheckBoard(Board board)
         {
             Debug.Assert(checkBoard(board), "Failed to validate board");
-            return true;
         }
         private static bool checkBoard(Board board)
         {
