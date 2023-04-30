@@ -1,7 +1,8 @@
 using System.Diagnostics;
-using chessmag.src.defs;
+using chessmag.defs;
+using chessmag.utils;
 
-namespace chessmag.src.utils
+namespace chessmag.engine
 {
     public static class PositionHash
     {

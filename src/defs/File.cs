@@ -1,4 +1,4 @@
-namespace chessmag.src.defs
+namespace chessmag.defs
 {
     public enum File : int
     {

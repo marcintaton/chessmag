@@ -1,7 +1,7 @@
 using System.Diagnostics;
-using chessmag.src.defs;
+using chessmag.defs;
 
-namespace chessmag.src.utils
+namespace chessmag.engine
 {
     public static class Materials
     {

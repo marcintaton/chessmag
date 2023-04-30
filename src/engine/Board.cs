@@ -1,7 +1,7 @@
 using System.IO.Pipes;
-using chessmag.src.defs;
+using chessmag.defs;
 
-namespace chessmag.src
+namespace chessmag.engine
 {
     public struct Board
     {

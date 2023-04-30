@@ -1,4 +1,4 @@
-namespace chessmag.src.utils
+namespace chessmag.utils
 {
     public static class RandomUlong
     {

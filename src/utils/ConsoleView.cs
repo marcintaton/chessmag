@@ -1,7 +1,8 @@
-using chessmag.src.defs;
-using File = chessmag.src.defs.File;
+using chessmag.defs;
+using chessmag.engine;
+using File = chessmag.defs.File;
 
-namespace chessmag.src
+namespace chessmag.utils
 {
     public static class ConsoleView
     {

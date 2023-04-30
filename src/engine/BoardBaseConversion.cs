@@ -1,7 +1,7 @@
-using chessmag.src.defs;
-using File = chessmag.src.defs.File;
+using chessmag.defs;
+using File = chessmag.defs.File;
 
-namespace chessmag.src
+namespace chessmag.engine
 {
     // Board Base Conversion
     public static class BoardBaseConversion

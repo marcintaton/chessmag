@@ -1,4 +1,4 @@
-namespace chessmag.src.defs
+namespace chessmag.defs
 {
     // 0000 - each bit for one right
     public enum CastlingRights : int
