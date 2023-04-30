@@ -20,7 +20,7 @@ namespace chessmag
 
             Board b = Fen.Parse(Constants.TestFEN6);
 
-            ConsoleView.printBoard(b);
+            IO.PrintBoard(b);
 
             Assertions.CheckBoard(b);
         }
