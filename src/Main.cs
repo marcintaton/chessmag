@@ -24,9 +24,9 @@ namespace chessmag
 
             Assertions.CheckBoard(b);
 
-            var result = Attack.IsSquareAttacked((int)Square.d1, (int)Color.WHITE, b);
+            var move = new Move(6, 12, (int)Piece.R, (int)Piece.b, true);
 
-            Console.WriteLine("Attack result - " + result);
+            Console.WriteLine(move.IsEnPas());
         }
     }
 }
