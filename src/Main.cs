@@ -24,9 +24,10 @@ namespace chessmag
 
             Assertions.CheckBoard(b);
 
-            var move = new Move(6, 12, (int)Piece.R, (int)Piece.b, true);
+            var move = new Move(34, 36, (int)Piece.R, (int)Piece.p, true);
 
             Console.WriteLine(move.IsEnPas());
+            Console.WriteLine(move.ToString());
         }
     }
 }

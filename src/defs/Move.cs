@@ -1,8 +1,9 @@
+using System.Diagnostics;
 namespace chessmag.defs
 {
     // move structure stored in an integer
-    // 0000 0000 0000 0000 0000 0111 1111 - from 0x3F
-    // 0000 0000 0000 0011 1111 1000 0000 - to >> 7, 0x3F
+    // 0000 0000 0000 0000 0000 0111 1111 - from 0x7F
+    // 0000 0000 0000 0011 1111 1000 0000 - to >> 7, 0x7F
     // 0000 0000 0011 1100 0000 0000 0000 - piece captured >> 14, 0xF
     // 0000 0000 0100 0000 0000 0000 0000 - En passant 0x40000
     // 0000 0000 1000 0000 0000 0000 0000 - Pawn start 0x80000
@@ -46,10 +47,23 @@ namespace chessmag.defs
         public int GetToSq() => (move >> 7) & 0x7F;
         public int GetPceCaptured() => (move >> 14) & 0xF;
         public int GetPromotedPce() => (move >> 20) & 0xF;
-        public int IsEnPas() => (move & enPasFlag) != 0 ? 1 : 0;
-        public int IsPawnStart() => (move & pawnStartFlag) != 0 ? 1 : 0;
-        public int IsCastle() => (move & castleFlag) != 0 ? 1 : 0;
-        public int IsCapture() => (move & captureFlag) != 0 ? 1 : 0;
-        public int IsPromotion() => (move & promotionFlag) != 0 ? 1 : 0;
+        public bool IsEnPas() => (move & enPasFlag) != 0x0;
+        public bool IsPawnStart() => (move & pawnStartFlag) != 0x0;
+        public bool IsCastle() => (move & castleFlag) != 0x0;
+        public bool IsCapture() => (move & captureFlag) != 0x0;
+        public bool IsPromotion() => (move & promotionFlag) != 0x0;
+
+        public override string ToString()
+        {
+            var prom = "";
+            if (IsPromotion())
+            {
+                prom = "q";
+                if (PieceData.isRook[GetPromotedPce()]) prom = "r";
+                else if (PieceData.isBishop[GetPromotedPce()]) prom = "b";
+                else if (PieceData.isKnight[GetPromotedPce()]) prom = "k";
+            }
+            return ((Square)GetFromSq()).ToString() + ((Square)GetToSq()).ToString() + prom;
+        }
     }
 }
