@@ -17,7 +17,7 @@ namespace chessmag.utils
                 {
                     int sq = BoardBaseConversion.FrTo120(file, rank);
                     int piece = board.pieces[sq];
-                    if (piece < 12)
+                    if (piece != (int)Piece.NONE)
                         Console.Write(" " + (Piece)piece);
                     else
                         Console.Write(" .");

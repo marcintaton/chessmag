@@ -48,7 +48,7 @@ namespace chessmag.utils
             {
                 int sq = BoardBaseConversion.Board64to120[sq64];
                 int t_pce = board.pieces[sq];
-                if (t_pce < (int)Piece.NONE)
+                if (t_pce >= (int)Piece.P && t_pce <= (int)Piece.k)
                 {
                     t_board.piecesNum[t_pce]++;
                     int color = PieceData.pieceColor[t_pce];

@@ -1,3 +1,5 @@
+using chessmag.engine;
+
 namespace chessmag.defs
 {
     public struct MoveList
@@ -10,35 +12,41 @@ namespace chessmag.defs
         }
 
         // why do we need a board?
-        public void AddQuietMove(int move)
+        public void AddQuietMove(Move move)
         {
-            moves[count].move = move;
-            moves[count].score = 0;
+            moves[count] = move;
             count++;
         }
 
-        public void AddCaptureMove(int move)
+        public void AddCaptureMove(Move move)
         {
-            moves[count].move = move;
-            moves[count].score = 0;
+            moves[count] = move;
             count++;
         }
 
-        public void AddEnPassantMove(int move)
+        public void AddEnPassantMove(Move move)
         {
-            moves[count].move = move;
-            moves[count].score = 0;
+            moves[count] = move;
             count++;
         }
 
-        public void AddPawnCapture(int move)
+        public void AddPawnMove(Move move, int color)
         {
+            int promotionRank = color == (int)Color.WHITE ? (int)Rank._7 : (int)Rank._2;
+            int promPieceStart = color == (int)Color.WHITE ? (int)Piece.R : (int)Piece.r;
 
-        }
-
-        public void AddPawnMove(int move)
-        {
-
+            if (BoardBaseConversion.Sq120ToRank[move.FromSq] == promotionRank)
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    move.PcePromoted = promPieceStart + i;
+                    if (move.Capture) AddCaptureMove(move); else AddQuietMove(move);
+                }
+            }
+            else
+            {
+                if (move.Capture) AddCaptureMove(move); else AddQuietMove(move);
+            }
         }
     }
 }

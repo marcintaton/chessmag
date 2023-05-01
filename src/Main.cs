@@ -18,11 +18,16 @@ namespace chessmag
 
             // ConsoleView.PrintBitBoard(bitBoard);
 
-            Board b = Fen.Parse(Constants.TestFEN6);
+            Board b = Fen.Parse(Constants.WhitePawnsFEN);
 
             IO.PrintBoard(b);
 
             Assertions.CheckBoard(b);
+
+            var list = MoveGenerator.GenerateAllMoves(b);
+
+            IO.PrintMoveList(list);
+
         }
     }
 }
