@@ -18,7 +18,7 @@ namespace chessmag
 
             // ConsoleView.PrintBitBoard(bitBoard);
 
-            Board b = Fen.Parse(Constants.WhitePawnsFEN);
+            Board b = Fen.Parse(Constants.kingsKnightsFEN);
 
             IO.PrintBoard(b);
 
@@ -27,7 +27,6 @@ namespace chessmag
             var list = MoveGenerator.GenerateAllMoves(b);
 
             IO.PrintMoveList(list);
-
         }
     }
 }

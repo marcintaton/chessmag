@@ -6,18 +6,10 @@ namespace chessmag.engine
 {
     public static class Attack
     {
-        // no need for specific queen attack pattern, as it is king's AP multiplied 
-        private static readonly int[] knightAttackPattern = new int[] { -8, -19, -21, -12, 8, 19, 21, 12 };
-        private static readonly int[] rookAttackPattern = new int[] { -1, -10, 1, 10 };
-        private static readonly int[] bishopAttackPattern = new int[] { -9, -11, 9, 11 };
-        private static readonly int[] kingAttackPattern = new int[] { -1, -10, 1, 10, -9, -11, 9, 11 };
-
-
         // square - that is attacked
         // side - that is attacking the square
         public static bool IsSquareAttacked(int sq120, int side, Board board)
         {
-
             Assertions.SideValid(side);
             Assertions.SqOnBoard(sq120);
             Assertions.CheckBoard(board);
@@ -33,9 +25,9 @@ namespace chessmag.engine
             }
 
             // knights' attacks
-            for (int i = 0; i < knightAttackPattern.Length; i++)
+            for (int i = 0; i < PieceData.knightMovePattern.Length; i++)
             {
-                int piece = board.pieces[sq120 + knightAttackPattern[i]];
+                int piece = board.pieces[sq120 + PieceData.knightMovePattern[i]];
                 if (PieceData.isKnight[piece] && PieceData.pieceColor[piece] == side)
                 {
                     return true;
@@ -43,9 +35,9 @@ namespace chessmag.engine
             }
 
             // rooks' and queens' attacks
-            for (int i = 0; i < rookAttackPattern.Length; i++)
+            for (int i = 0; i < PieceData.rookAttackPattern.Length; i++)
             {
-                int dir = rookAttackPattern[i];
+                int dir = PieceData.rookAttackPattern[i];
                 int t_sq120 = sq120 + dir;
                 int piece = board.pieces[t_sq120];
                 while (!BoardBaseConversion.IsOffboard(t_sq120))
@@ -64,9 +56,9 @@ namespace chessmag.engine
             }
 
             // bishops' and queens' attacks
-            for (int i = 0; i < bishopAttackPattern.Length; i++)
+            for (int i = 0; i < PieceData.bishopAttackPattern.Length; i++)
             {
-                int dir = bishopAttackPattern[i];
+                int dir = PieceData.bishopAttackPattern[i];
                 int t_sq120 = sq120 + dir;
                 int piece = board.pieces[t_sq120];
                 while (!BoardBaseConversion.IsOffboard(t_sq120))
@@ -85,9 +77,9 @@ namespace chessmag.engine
             }
 
             // kings' attacks
-            for (int i = 0; i < kingAttackPattern.Length; i++)
+            for (int i = 0; i < PieceData.kingMovePattern.Length; i++)
             {
-                int piece = board.pieces[sq120 + kingAttackPattern[i]];
+                int piece = board.pieces[sq120 + PieceData.kingMovePattern[i]];
                 if (PieceData.isKing[piece] && PieceData.pieceColor[piece] == side)
                 {
                     return true;

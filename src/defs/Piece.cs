@@ -25,6 +25,11 @@ namespace chessmag.defs
         public static readonly bool[] isRook = new bool[] { false, false, true, false, false, false, false, false, true, false, false, false, false };
         public static readonly bool[] isQueen = new bool[] { false, false, false, false, false, true, false, false, false, false, false, true, false };
         public static readonly bool[] isSliding = new bool[] { false, false, true, false, true, true, false, false, true, false, true, true, false, };
+        public static readonly int[] knightMovePattern = new int[] { -8, -19, -21, -12, 8, 19, 21, 12 };
+        public static readonly int[] rookAttackPattern = new int[] { -1, -10, 1, 10 };
+        public static readonly int[] bishopAttackPattern = new int[] { -9, -11, 9, 11 };
+        public static readonly int[] kingMovePattern = new int[] { -1, -10, 1, 10, -9, -11, 9, 11 };
+        public static readonly int[] queenAttackPattern = new int[] { -1, -10, 1, 10, -9, -11, 9, 11 };
 
     }
 }
