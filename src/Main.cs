@@ -26,7 +26,11 @@ namespace chessmag
 
             var list = MoveGenerator.GenerateAllMoves(b);
 
-            IO.PrintMoveList(list);
+            // IO.PrintMoveList(list);
+
+            b = MoveCtrl.ClearPiece(b, (int)Square.c2);
+
+            Assertions.CheckBoard(b);
         }
     }
 }
