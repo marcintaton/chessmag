@@ -8,7 +8,6 @@ namespace chessmag.engine
 {
     public static class Fen
     {
-
         public static Board Parse(string fen)
         {
             // splitting fen into manageable parts 
@@ -18,7 +17,6 @@ namespace chessmag.engine
             // 3 - enpas square
             // 4 - 50 move counter
             // 5 - full move counter 
-
 
             string[] splitFEN = fen.Split(' ');
 
@@ -33,7 +31,7 @@ namespace chessmag.engine
             foreach (var c in splitFEN[0])
             {
                 int count = 1;
-                int piece;
+                int piece = (int)Piece.NONE;
                 switch (c)
                 {
                     case 'p': piece = (int)Piece.p; break;
@@ -67,7 +65,8 @@ namespace chessmag.engine
                         file = (int)File.a;
                         continue;
                     default:
-                        throw new Exception("Invalid FEN string");
+                        Assertions.Fail();
+                        break;
                 }
 
                 for (int i = 0; i < count; i++)

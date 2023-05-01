@@ -21,6 +21,14 @@ namespace chessmag.utils
             Debug.Assert(fr >= 0 && fr <= 7, "File or rank out of bounds. Found: " + fr, message);
         }
 
+        public static void EnPasSquareValid(int sq120, int side, string message = "")
+        {
+            Debug.Assert(
+                   (side == (int)Color.WHITE && BoardBaseConversion.Sq120ToRank[sq120] == (int)Rank._3)
+                || (side == (int)Color.BLACK && BoardBaseConversion.Sq120ToRank[sq120] == (int)Rank._6),
+                "EP square on invalid rank.", message);
+        }
+
         public static void PieceValid(int piece, string message = "")
         {
             Debug.Assert(piece >= (int)Piece.P && piece <= (int)Piece.k, "Invalid piece. Found: " + piece, message);
@@ -35,6 +43,11 @@ namespace chessmag.utils
         {
             Debug.Assert(cr >= (int)CastlingRights.NONE && cr <= (int)CastlingRights.ALL, "Invalid Castling Rights. Found: " + cr, message);
 
+        }
+
+        public static void Fail()
+        {
+            Debug.Fail("Whatever this is, it should have never happened");
         }
     }
 }

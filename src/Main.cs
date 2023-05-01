@@ -28,7 +28,7 @@ namespace chessmag
 
             // IO.PrintMoveList(list);
 
-            b = MoveCtrl.AddPiece(b, (int)Square.b3, (int)Piece.Q);
+            b = MoveCtrl.AddPiece((int)Square.b3, (int)Piece.Q, b);
 
             Assertions.CheckBoard(b);
             IO.PrintBoard(b);

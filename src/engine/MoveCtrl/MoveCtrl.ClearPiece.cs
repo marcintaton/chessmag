@@ -5,7 +5,7 @@ namespace chessmag.engine
 {
     public static partial class MoveCtrl
     {
-        public static Board ClearPiece(Board board, int sq120)
+        public static Board ClearPiece(int sq120, Board board)
         {
             Assertions.SqOnBoard(sq120);
 

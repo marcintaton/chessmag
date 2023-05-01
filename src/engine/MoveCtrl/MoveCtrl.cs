@@ -24,11 +24,5 @@ namespace chessmag.engine
             castlePerms[(int)Square.e8] = 3;
             castlePerms[(int)Square.h8] = 11;
         }
-
-
-        public static Board Unmake(Move move, Board board)
-        {
-            return board;
-        }
     }
 }
