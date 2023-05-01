@@ -2,7 +2,7 @@ namespace chessmag.defs
 {
     public struct MoveUndo
     {
-        public int move;
+        public Move move;
         public int castlingRights;
         public int enPasSq;
         public int fiftyMoveCtr;

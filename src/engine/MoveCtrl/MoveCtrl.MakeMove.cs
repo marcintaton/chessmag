@@ -51,7 +51,7 @@ namespace chessmag.engine
             if (board.enPasSq != (int)Square.NONE) board.positionHash = HashEp(board);
             board.positionHash = HashCR(board);
 
-            board.moveHist[board.histPly].move = move.move;
+            board.moveHist[board.histPly].move = move;
             board.moveHist[board.histPly].fiftyMoveCtr = board.fiftyMoveCtr;
             board.moveHist[board.histPly].enPasSq = board.enPasSq;
             board.moveHist[board.histPly].castlingRights = board.castlingRights;
