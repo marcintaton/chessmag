@@ -27,8 +27,8 @@ namespace chessmag.engine
         public int sideToMove = (int)Color.WHITE;
         public int enPasSq = (int)Square.NONE;
         public int fiftyMoveCtr = 0;
-        public int ply = 0;
-        public int histPly = 0; // determining repetition
+        public int ply = 0; // used during search 
+        public int histPly = 0; // determining repetition - stores total halfmoves of the game
         public int castlingRights = (int)CastlingRights.NONE; // 15 - 1111 - meaning all 4 casting rights are available
         public ulong positionHash = 0; // a unique position hash key 
 
@@ -53,8 +53,8 @@ namespace chessmag.engine
             sideToMove = (int)Color.BOTH;
             enPasSq = (int)Square.NONE;
             fiftyMoveCtr = 0;
-            ply = 0;
             histPly = 0;
+            ply = 0;
             castlingRights = (int)CastlingRights.NONE;
             positionHash = 0UL;
 

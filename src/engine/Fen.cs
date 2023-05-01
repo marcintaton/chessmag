@@ -119,7 +119,7 @@ namespace chessmag.engine
             pos.fiftyMoveCtr = int.Parse(splitFEN[4]);
 
             // move counter 
-            pos.ply = ((int.Parse(splitFEN[5]) - 1) * 2) + pos.sideToMove;
+            pos.histPly = ((int.Parse(splitFEN[5]) - 1) * 2) + pos.sideToMove;
 
             pos.positionHash = PositionHash.Get(pos);
 
