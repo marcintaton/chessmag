@@ -5,10 +5,10 @@ namespace chessmag.engine
 {
     public static partial class MoveCtrl
     {
-        private static ulong hashPce(Board b, int sq120, int pce) => b.positionHash ^ PositionHash.PieceKeys[pce, sq120];
-        private static ulong hashCR(Board b) => b.positionHash ^ PositionHash.CastlingKeys[b.castlingRights];
-        private static ulong hashSide(Board b) => b.positionHash ^ PositionHash.SideKey;
-        private static ulong hashEp(Board b) => b.positionHash ^ PositionHash.PieceKeys[(int)Piece.NONE, b.enPasSq];
+        private static ulong HashPce(Board b, int sq120, int pce) => b.positionHash ^ PositionHash.PieceKeys[pce, sq120];
+        private static ulong HashCR(Board b) => b.positionHash ^ PositionHash.CastlingKeys[b.castlingRights];
+        private static ulong HashSide(Board b) => b.positionHash ^ PositionHash.SideKey;
+        private static ulong HashEp(Board b) => b.positionHash ^ PositionHash.PieceKeys[(int)Piece.NONE, b.enPasSq];
 
         private static readonly int[] castlePerms = new int[120];
 

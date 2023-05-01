@@ -12,7 +12,7 @@ namespace chessmag.engine
 
             int color = PieceData.pieceColor[piece];
 
-            board.positionHash = hashPce(board, sq120, piece);
+            board.positionHash = HashPce(board, sq120, piece);
 
             board.pieces[sq120] = piece;
 

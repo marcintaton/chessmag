@@ -13,10 +13,10 @@ namespace chessmag.engine
             int piece = board.pieces[from120];
             int color = PieceData.pieceColor[piece];
 
-            board.positionHash = hashPce(board, from120, piece);
+            board.positionHash = HashPce(board, from120, piece);
             board.pieces[from120] = (int)Piece.NONE;
 
-            board.positionHash = hashPce(board, to120, piece);
+            board.positionHash = HashPce(board, to120, piece);
             board.pieces[to120] = piece;
 
             // pawn

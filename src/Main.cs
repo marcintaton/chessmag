@@ -25,10 +25,13 @@ namespace chessmag
             Assertions.CheckBoard(b);
 
             var list = MoveGenerator.GenerateAllMoves(b);
-
             // IO.PrintMoveList(list);
 
-            b = MoveCtrl.AddPiece((int)Square.b3, (int)Piece.Q, b);
+            Console.WriteLine(list.moves[0]);
+
+            var result = MoveCtrl.MakeMove(list.moves[0], b);
+
+            if (!result.inCheck) b = result.board;
 
             Assertions.CheckBoard(b);
             IO.PrintBoard(b);

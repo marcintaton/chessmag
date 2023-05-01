@@ -13,7 +13,7 @@ namespace chessmag.engine
 
             Assertions.PieceValid(piece);
 
-            board.positionHash = hashPce(board, sq120, piece);
+            board.positionHash = HashPce(board, sq120, piece);
 
             int color = PieceData.pieceColor[piece];
 
