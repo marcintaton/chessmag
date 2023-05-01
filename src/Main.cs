@@ -18,7 +18,7 @@ namespace chessmag
 
             // ConsoleView.PrintBitBoard(bitBoard);
 
-            Board b = Fen.Parse(Constants.castlingFEN3);
+            Board b = Fen.Parse(Constants.TestFEN7);
 
             IO.PrintBoard(b);
 
