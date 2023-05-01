@@ -17,7 +17,7 @@ namespace chessmag.engine
             board.pieces[from120] = (int)Piece.NONE;
 
             board.positionHash = hashPce(board, to120, piece);
-            board.pieces[from120] = piece;
+            board.pieces[to120] = piece;
 
             // pawn
             if (!PieceData.isPieceBig[piece])

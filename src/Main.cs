@@ -28,9 +28,11 @@ namespace chessmag
 
             // IO.PrintMoveList(list);
 
-            b = MoveCtrl.ClearPiece(b, (int)Square.c2);
+            b = MoveCtrl.AddPiece(b, (int)Square.b3, (int)Piece.Q);
 
             Assertions.CheckBoard(b);
+            IO.PrintBoard(b);
+
         }
     }
 }
