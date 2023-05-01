@@ -9,6 +9,8 @@ namespace chessmag.engine
         {
             Assertions.CheckBoard(board);
 
+            if (board.histPly == 0) return board;
+
             board.histPly--;
             board.ply--;
 

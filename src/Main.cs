@@ -18,20 +18,20 @@ namespace chessmag
 
             // ConsoleView.PrintBitBoard(bitBoard);
 
-            Board b = Fen.Parse(Constants.TestFEN7);
+            Board b = Fen.Parse(Constants.TestFEN8);
 
             IO.PrintBoard(b);
 
             Assertions.CheckBoard(b);
 
             var list = MoveGenerator.GenerateAllMoves(b);
-            // IO.PrintMoveList(list);
+            IO.PrintMoveList(list);
 
-            Console.WriteLine(list.moves[20]);
+            Console.WriteLine(list.moves[0]);
 
-            var result = MoveCtrl.MakeMove(list.moves[20], b);
+            var result = MoveCtrl.MakeMove(list.moves[0], b);
 
-            if (!result.inCheck) b = result.board;
+            b = result.board;
 
             Assertions.CheckBoard(b);
 
@@ -42,7 +42,6 @@ namespace chessmag
             Assertions.CheckBoard(b);
 
             IO.PrintBoard(b);
-
         }
     }
 }
