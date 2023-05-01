@@ -35,9 +35,9 @@ namespace chessmag.engine
             }
 
             // rooks' and queens' attacks
-            for (int i = 0; i < PieceData.rookAttackPattern.Length; i++)
+            for (int i = 0; i < PieceData.rookMovePattern.Length; i++)
             {
-                int dir = PieceData.rookAttackPattern[i];
+                int dir = PieceData.rookMovePattern[i];
                 int t_sq120 = sq120 + dir;
                 int piece = board.pieces[t_sq120];
                 while (!BoardBaseConversion.IsOffboard(t_sq120))
@@ -56,9 +56,9 @@ namespace chessmag.engine
             }
 
             // bishops' and queens' attacks
-            for (int i = 0; i < PieceData.bishopAttackPattern.Length; i++)
+            for (int i = 0; i < PieceData.bishopMovePattern.Length; i++)
             {
-                int dir = PieceData.bishopAttackPattern[i];
+                int dir = PieceData.bishopMovePattern[i];
                 int t_sq120 = sq120 + dir;
                 int piece = board.pieces[t_sq120];
                 while (!BoardBaseConversion.IsOffboard(t_sq120))

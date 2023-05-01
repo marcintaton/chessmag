@@ -75,13 +75,64 @@ namespace chessmag.engine
         private static MoveList GenerateSlidingMoves(Board board, MoveList moveList)
         {
             int color = board.sideToMove;
+            int oppositeColor = color ^ 1;
 
-            for (int i = 0; i < SlidingPieces.GetLength(1); i++)
+            for (int sp = 0; sp < SlidingPieces.GetLength(1); sp++)
             {
-                int piece = SlidingPieces[color, i];
-                Assertions.PieceValid(piece);
-            }
+                int pieceType = SlidingPieces[color, sp];
+                Assertions.PieceValid(pieceType);
 
+                for (int pieceIndex = 0; pieceIndex < board.piecesNum[pieceType]; pieceIndex++)
+                {
+                    int[] movePattern = new int[1];
+                    switch (pieceType)
+                    {
+                        case (int)Piece.Q:
+                        case (int)Piece.q:
+                            movePattern = PieceData.queenMovePattern;
+                            break;
+                        case (int)Piece.B:
+                        case (int)Piece.b:
+                            movePattern = PieceData.bishopMovePattern;
+                            break;
+                        case (int)Piece.R:
+                        case (int)Piece.r:
+                            movePattern = PieceData.rookMovePattern;
+                            break;
+                    };
+
+                    int sq120 = board.pieceList[pieceType, pieceIndex];
+                    Assertions.SqOnBoard(sq120);
+
+                    Console.WriteLine("Piece " + (Piece)pieceType + " on square " + (Square)sq120);
+
+
+                    for (int moveSq = 0; moveSq < movePattern.Length; moveSq++)
+                    {
+                        int direction = movePattern[moveSq];
+                        int t_sq120 = sq120 + direction;
+
+                        while (!BoardBaseConversion.IsOffboard(t_sq120))
+                        {
+                            int t_piece = board.pieces[t_sq120];
+                            if (t_piece != (int)Piece.NONE)
+                            {
+                                if (PieceData.pieceColor[t_piece] == oppositeColor)
+                                {
+                                    // capture
+                                    Console.WriteLine("Capture on " + (Square)t_sq120);
+                                }
+                                break;
+                            }
+
+                            // normal move
+                            Console.WriteLine("Normal move on " + (Square)t_sq120);
+                            t_sq120 += direction;
+                        }
+                    }
+                }
+            }
+            Console.WriteLine();
             return moveList;
         }
 
