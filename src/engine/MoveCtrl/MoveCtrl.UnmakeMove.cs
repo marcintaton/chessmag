@@ -68,7 +68,7 @@ namespace chessmag.engine
 
             if (PieceData.isKing[piece]) board.kingSq[board.sideToMove] = from;
 
-            if (move.Capture)
+            if (move.Capture && !move.EnPassant)
             {
                 Assertions.PieceValid(move.PceCaptured);
                 board = AddPiece(to, move.PceCaptured, board);

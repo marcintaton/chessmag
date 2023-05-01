@@ -64,7 +64,7 @@ namespace chessmag.engine
 
             board.fiftyMoveCtr++;
 
-            if (move.Capture)
+            if (move.Capture && !move.EnPassant)
             {
                 Assertions.PieceValid(move.PceCaptured);
                 board = ClearPiece(to, board);

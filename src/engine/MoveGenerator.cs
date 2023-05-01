@@ -61,11 +61,11 @@ namespace chessmag.engine
                 {
                     if (!BoardBaseConversion.IsOffboard(sq120 + (9 * directionMod)) && sq120 + (9 * directionMod) == board.enPasSq)
                     {
-                        moveList.AddEnPassantMove(new Move(sq120, sq120 + (9 * directionMod), board.pieces[sq120 + (-1 * directionMod)], (int)Piece.NONE, true));
+                        moveList.AddEnPassantMove(new Move(sq120, sq120 + (9 * directionMod), (int)Piece.NONE, (int)Piece.NONE, true));
                     }
                     else if (!BoardBaseConversion.IsOffboard(sq120 + (11 * directionMod)) && sq120 + (11 * directionMod) == board.enPasSq)
                     {
-                        moveList.AddEnPassantMove(new Move(sq120, sq120 + (11 * directionMod), board.pieces[sq120 + (1 * directionMod)], (int)Piece.NONE, true));
+                        moveList.AddEnPassantMove(new Move(sq120, sq120 + (11 * directionMod), (int)Piece.NONE, (int)Piece.NONE, true));
                     }
                 }
             }
@@ -145,7 +145,7 @@ namespace chessmag.engine
 
                 for (int pieceIndex = 0; pieceIndex < board.piecesNum[pieceType]; pieceIndex++)
                 {
-                    int[] movePattern = pieceType == (int)Piece.K || pieceType == (int)Piece.k ? PieceData.kingMovePattern : PieceData.knightMovePattern;
+                    int[] movePattern = (pieceType == (int)Piece.K || pieceType == (int)Piece.k) ? PieceData.kingMovePattern : PieceData.knightMovePattern;
                     int sq120 = board.pieceList[pieceType, pieceIndex];
                     Assertions.SqOnBoard(sq120);
 

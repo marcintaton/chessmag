@@ -4,7 +4,7 @@ namespace chessmag.defs
     // move structure stored in an integer
     // 0000 0000 0000 0000 0000 0111 1111 - from 0x7F
     // 0000 0000 0000 0011 1111 1000 0000 - to >> 7, 0x7F (or 0x3F80)
-    // 0000 0000 0011 1100 0000 0000 0000 - piece captured >> 14, 0xF (or 0x7C000)
+    // 0000 0000 0011 1100 0000 0000 0000 - piece captured >> 14, 0xF (or 0x3C000)
     // 0000 0000 0100 0000 0000 0000 0000 - En passant 0x40000
     // 0000 0000 1000 0000 0000 0000 0000 - Pawn start 0x80000
     // 0000 1111 0000 0000 0000 0000 0000 - pawn promotion >> 20, 0xF (or 0xF00000)

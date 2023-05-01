@@ -1,5 +1,6 @@
 ﻿using chessmag.defs;
 using chessmag.engine;
+using chessmag.tests;
 using chessmag.utils;
 
 namespace chessmag
@@ -8,40 +9,20 @@ namespace chessmag
     {
         private static void Main()
         {
-            // ulong bitBoard = 0UL;
-
-            // bitBoard = BitBoard.SetBit(bitBoard, (int)Square.d2);
-            // bitBoard = BitBoard.SetBit(bitBoard, (int)Square.g4);
-            // bitBoard = BitBoard.SetBit(bitBoard, (int)Square.e3);
-
-            // bitBoard = BitBoard.UnsetBit(bitBoard, (int)Square.e3);
-
-            // ConsoleView.PrintBitBoard(bitBoard);
-
-            Board b = Fen.Parse(Constants.TestFEN8);
+            Board b = Fen.Parse(Constants.StartingFEN);
 
             IO.PrintBoard(b);
 
             Assertions.CheckBoard(b);
 
-            var list = MoveGenerator.GenerateAllMoves(b);
-            IO.PrintMoveList(list);
+            // var mov = new Move((int)Square.d3, (int)Square.d4);
 
-            Console.WriteLine(list.moves[0]);
+            // Console.WriteLine(mov.Capture);
 
-            var result = MoveCtrl.MakeMove(list.moves[0], b);
 
-            b = result.board;
+            var result = Perft.Test(5, b);
 
-            Assertions.CheckBoard(b);
-
-            IO.PrintBoard(b);
-
-            b = MoveCtrl.UnmakeMove(b);
-
-            Assertions.CheckBoard(b);
-
-            IO.PrintBoard(b);
+            Console.WriteLine("Moves found " + result);
         }
     }
 }
