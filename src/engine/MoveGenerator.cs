@@ -11,43 +11,54 @@ namespace chessmag.engine
 
             var moveList = new MoveList();
 
-            if (board.sideToMove == (int)Color.WHITE)
+            moveList = GeneratePawnMoves(board, moveList, board.sideToMove);
+
+            return moveList;
+        }
+
+        private static MoveList GeneratePawnMoves(Board board, MoveList moveList, int color)
+        {
+            int oppositeColor = color == (int)Color.WHITE ? (int)Color.BLACK : (int)Color.WHITE;
+            int directionMod = color == (int)Color.WHITE ? 1 : -1;
+            int pawnCode = color == (int)Color.WHITE ? (int)Piece.P : (int)Piece.p;
+            int pawnStartRank = color == (int)Color.WHITE ? (int)Rank._2 : (int)Rank._7;
+
+            // gen forward, double forward moves (with promotions)
+            for (int pawn = 0; pawn < board.piecesNum[pawnCode]; pawn++)
             {
-                for (int wp = 0; wp < board.piecesNum[(int)Piece.P]; wp++)
+                int sq120 = board.pieceList[pawnCode, pawn];
+                Assertions.SqOnBoard(sq120);
+
+                if (board.pieces[sq120 + (10 * directionMod)] == (int)Piece.NONE)
                 {
-                    int sq120 = board.pieceList[(int)Piece.P, wp];
-                    Assertions.SqOnBoard(sq120);
-
-                    if (board.pieces[sq120 + 10] == (int)Piece.NONE)
+                    moveList.AddPawnMove(new Move(sq120, sq120 + (10 * directionMod)), color);
+                    if (BoardBaseConversion.Sq120ToRank[sq120] == pawnStartRank && board.pieces[sq120 + (20 * directionMod)] == (int)Piece.NONE)
                     {
-                        moveList.AddPawnMove(new Move(sq120, sq120 + 10), (int)Color.WHITE);
-                        if (BoardBaseConversion.Sq120ToRank[sq120] == (int)Rank._2 && board.pieces[sq120 + 20] == (int)Piece.NONE)
-                        {
-                            moveList.AddQuietMove(new Move(sq120, sq120 + 20, (int)Piece.NONE, (int)Piece.NONE, false, true));
-                        }
+                        moveList.AddQuietMove(new Move(sq120, sq120 + (20 * directionMod), (int)Piece.NONE, (int)Piece.NONE, false, true));
                     }
+                }
 
-                    if (!BoardBaseConversion.IsOffboard(sq120 + 9) && PieceData.pieceColor[board.pieces[sq120 + 9]] == (int)Color.BLACK)
+                // gen captures (with promotions)
+                if (!BoardBaseConversion.IsOffboard(sq120 + (9 * directionMod)) && PieceData.pieceColor[board.pieces[sq120 + (9 * directionMod)]] == oppositeColor)
+                {
+                    moveList.AddPawnMove(new Move(sq120, sq120 + (9 * directionMod), board.pieces[sq120 + (9 * directionMod)]), color);
+                }
+
+                if (!BoardBaseConversion.IsOffboard(sq120 + (11 * directionMod)) && PieceData.pieceColor[board.pieces[sq120 + (11 * directionMod)]] == oppositeColor)
+                {
+                    moveList.AddPawnMove(new Move(sq120, sq120 + (11 * directionMod), board.pieces[sq120 + (11 * directionMod)]), color);
+                }
+
+                // generate en passant
+                if (board.enPasSq != (int)Square.NONE)
+                {
+                    if (!BoardBaseConversion.IsOffboard(sq120 + (9 * directionMod)) && sq120 + (9 * directionMod) == board.enPasSq)
                     {
-                        moveList.AddPawnMove(new Move(sq120, sq120 + 9, board.pieces[sq120 + 9]), (int)Color.WHITE);
+                        moveList.AddEnPassantMove(new Move(sq120, sq120 + (9 * directionMod), board.pieces[sq120 + (-1 * directionMod)], (int)Piece.NONE, true));
                     }
-
-                    if (!BoardBaseConversion.IsOffboard(sq120 + 11) && PieceData.pieceColor[board.pieces[sq120 + 11]] == (int)Color.BLACK)
+                    else if (!BoardBaseConversion.IsOffboard(sq120 + (11 * directionMod)) && sq120 + (11 * directionMod) == board.enPasSq)
                     {
-                        moveList.AddPawnMove(new Move(sq120, sq120 + 11, board.pieces[sq120 + 11]), (int)Color.WHITE);
-                    }
-
-                    if (board.enPasSq != (int)Square.NONE)
-                    {
-                        if (!BoardBaseConversion.IsOffboard(sq120 + 9) && sq120 + 9 == board.enPasSq)
-                        {
-                            moveList.AddEnPassantMove(new Move(sq120, sq120 + 9, (int)Piece.NONE, (int)Piece.NONE, true));
-                        }
-
-                        if (!BoardBaseConversion.IsOffboard(sq120 + 11) && sq120 + 11 == board.enPasSq)
-                        {
-                            moveList.AddEnPassantMove(new Move(sq120, sq120 + 9, (int)Piece.NONE, (int)Piece.NONE, true));
-                        }
+                        moveList.AddEnPassantMove(new Move(sq120, sq120 + (11 * directionMod), board.pieces[sq120 + (1 * directionMod)], (int)Piece.NONE, true));
                     }
                 }
             }
