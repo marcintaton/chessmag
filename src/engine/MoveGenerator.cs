@@ -17,6 +17,7 @@ namespace chessmag.engine
             moveList = GeneratePawnMoves(board, moveList);
             moveList = GenerateSlidingMoves(board, moveList);
             moveList = GenerateNonSlidingMoves(board, moveList);
+            moveList = GenerateCastlingMoves(board, moveList);
 
             return moveList;
         }
@@ -182,6 +183,61 @@ namespace chessmag.engine
 
             }
             Console.WriteLine();
+            return moveList;
+        }
+
+        private static MoveList GenerateCastlingMoves(Board board, MoveList moveList)
+        {
+
+            if (board.sideToMove == (int)Color.WHITE)
+            {
+                if ((board.castlingRights & (int)CastlingRights.K) != 0
+                    && board.pieces[(int)Square.f1] == (int)Piece.NONE
+                    && board.pieces[(int)Square.g1] == (int)Piece.NONE
+                    && !Attack.IsSquareAttacked((int)Square.e1, (int)Color.BLACK, board)
+                    && !Attack.IsSquareAttacked((int)Square.f1, (int)Color.BLACK, board)
+                    && !Attack.IsSquareAttacked((int)Square.g1, (int)Color.BLACK, board))
+                {
+                    // gen castling move K
+                    Console.WriteLine("O-O White");
+                }
+                if ((board.castlingRights & (int)CastlingRights.Q) != 0
+                    && board.pieces[(int)Square.d1] == (int)Piece.NONE
+                    && board.pieces[(int)Square.c1] == (int)Piece.NONE
+                    && board.pieces[(int)Square.b1] == (int)Piece.NONE
+                    && !Attack.IsSquareAttacked((int)Square.e1, (int)Color.BLACK, board)
+                    && !Attack.IsSquareAttacked((int)Square.d1, (int)Color.BLACK, board)
+                    && !Attack.IsSquareAttacked((int)Square.c1, (int)Color.BLACK, board))
+                {
+                    // gen castling move Q
+                    Console.WriteLine("O-O-O White");
+                }
+
+            }
+            else
+            {
+                if ((board.castlingRights & (int)CastlingRights.k) != 0
+                    && board.pieces[(int)Square.f8] == (int)Piece.NONE
+                    && board.pieces[(int)Square.g8] == (int)Piece.NONE
+                    && !Attack.IsSquareAttacked((int)Square.e8, (int)Color.WHITE, board)
+                    && !Attack.IsSquareAttacked((int)Square.f8, (int)Color.WHITE, board)
+                    && !Attack.IsSquareAttacked((int)Square.g8, (int)Color.WHITE, board))
+                {
+                    // gen castling move k
+                    Console.WriteLine("O-O Black");
+                }
+                if ((board.castlingRights & (int)CastlingRights.q) != 0
+                    && board.pieces[(int)Square.d8] == (int)Piece.NONE
+                    && board.pieces[(int)Square.c8] == (int)Piece.NONE
+                    && board.pieces[(int)Square.b8] == (int)Piece.NONE
+                    && !Attack.IsSquareAttacked((int)Square.e8, (int)Color.WHITE, board)
+                    && !Attack.IsSquareAttacked((int)Square.d8, (int)Color.WHITE, board)
+                    && !Attack.IsSquareAttacked((int)Square.c8, (int)Color.WHITE, board))
+                {
+                    // gen castling move q
+                    Console.WriteLine("O-O-O Black");
+                }
+            }
             return moveList;
         }
     }

@@ -18,6 +18,9 @@ namespace chessmag.defs
         public const string rooksFEN = "6k1/8/5r2/8/1nR5/5N2/8/6K1 w - - 0 1";
         public const string queensFEN = "6k1/8/4nq2/8/1nQ5/5N2/1N6/6K1 b - - 0 1";
         public const string bishopsFEN = "6k1/1b6/4n3/8/1n4B1/1B3N2/1N6/2b3K1 b - - 0 1";
+        public const string castlingFEN1 = "r3k2r/8/8/8/8/8/8/R3K2R b KQkq - 0 1";
+        public const string castlingFEN2 = "3rk2r/8/8/8/8/8/6p1/R3K2R b KQkq - 0 1";
+        public const string castlingFEN3 = "3rk2r/p7/6N1/8/8/6n1/8/R3K2R b KQkq - 0 1";
 
     }
 }
