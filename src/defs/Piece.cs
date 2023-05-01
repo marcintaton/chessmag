@@ -24,5 +24,7 @@ namespace chessmag.defs
         public static readonly bool[] isBishop = new bool[] { false, false, false, false, true, false, false, false, false, false, true, false, false };
         public static readonly bool[] isRook = new bool[] { false, false, true, false, false, false, false, false, true, false, false, false, false };
         public static readonly bool[] isQueen = new bool[] { false, false, false, false, false, true, false, false, false, false, false, true, false };
+        public static readonly bool[] isSliding = new bool[] { false, false, true, false, true, true, false, false, true, false, true, true, false, };
+
     }
 }

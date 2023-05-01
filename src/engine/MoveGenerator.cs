@@ -5,19 +5,25 @@ namespace chessmag.engine
 {
     public static class MoveGenerator
     {
+        private static readonly int[,] SlidingPieces = { { (int)Piece.R, (int)Piece.B, (int)Piece.Q, }, { (int)Piece.r, (int)Piece.b, (int)Piece.q } };
+        private static readonly int[,] NonSlidingPieces = { { (int)Piece.N, (int)Piece.K, }, { (int)Piece.n, (int)Piece.k, } };
+
         public static MoveList GenerateAllMoves(Board board)
         {
             Assertions.CheckBoard(board);
 
             var moveList = new MoveList();
 
-            moveList = GeneratePawnMoves(board, moveList, board.sideToMove);
+            moveList = GeneratePawnMoves(board, moveList);
+            moveList = GenerateSlidingMoves(board, moveList);
+            moveList = GenerateNonSlidingMoves(board, moveList);
 
             return moveList;
         }
 
-        private static MoveList GeneratePawnMoves(Board board, MoveList moveList, int color)
+        private static MoveList GeneratePawnMoves(Board board, MoveList moveList)
         {
+            int color = board.sideToMove;
             int oppositeColor = color == (int)Color.WHITE ? (int)Color.BLACK : (int)Color.WHITE;
             int directionMod = color == (int)Color.WHITE ? 1 : -1;
             int pawnCode = color == (int)Color.WHITE ? (int)Piece.P : (int)Piece.p;
@@ -61,6 +67,34 @@ namespace chessmag.engine
                         moveList.AddEnPassantMove(new Move(sq120, sq120 + (11 * directionMod), board.pieces[sq120 + (1 * directionMod)], (int)Piece.NONE, true));
                     }
                 }
+            }
+
+            return moveList;
+        }
+
+        private static MoveList GenerateSlidingMoves(Board board, MoveList moveList)
+        {
+            int color = board.sideToMove;
+
+            for (int i = 0; i < SlidingPieces.GetLength(1); i++)
+            {
+                int piece = SlidingPieces[color, i];
+                Assertions.PieceValid(piece);
+                Console.WriteLine((Piece)piece);
+            }
+
+            return moveList;
+        }
+
+        private static MoveList GenerateNonSlidingMoves(Board board, MoveList moveList)
+        {
+            int color = board.sideToMove;
+
+            for (int i = 0; i < NonSlidingPieces.GetLength(1); i++)
+            {
+                int piece = NonSlidingPieces[color, i];
+                Assertions.PieceValid(piece);
+                Console.WriteLine((Piece)piece);
             }
 
             return moveList;

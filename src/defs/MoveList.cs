@@ -1,4 +1,5 @@
 using chessmag.engine;
+using chessmag.utils;
 
 namespace chessmag.defs
 {
@@ -32,6 +33,10 @@ namespace chessmag.defs
 
         public void AddPawnMove(Move move, int color)
         {
+            Assertions.PieceValidOrNone(move.PceCaptured);
+            Assertions.SqOnBoard(move.FromSq);
+            Assertions.SqOnBoard(move.ToSq);
+
             int promotionRank = color == (int)Color.WHITE ? (int)Rank._7 : (int)Rank._2;
             int promPieceStart = color == (int)Color.WHITE ? (int)Piece.R : (int)Piece.r;
 

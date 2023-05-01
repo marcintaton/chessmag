@@ -28,7 +28,7 @@ namespace chessmag.utils
 
         public static void PieceValidOrNone(int piece, string message = "")
         {
-            Debug.Assert(piece >= (int)Piece.P && piece <= (int)Piece.NONE, "Invalid piece (inc. NONE). Found: " + piece, message);
+            Debug.Assert(piece >= (int)Piece.NONE && piece <= (int)Piece.k, "Invalid piece (inc. NONE). Found: " + piece, message);
         }
 
         public static void CastlingRightsValid(int cr, string message = "")
