@@ -36,8 +36,8 @@ namespace chessmag.engine
 
             if (move.EnPassant)
             {
-                if (board.sideToMove == (int)Color.WHITE) board = AddPiece(to - 10, (int)Piece.P, board);
-                else board = AddPiece(to + 10, (int)Piece.p, board);
+                if (board.sideToMove == (int)Color.WHITE) board = AddPiece(to - 10, (int)Piece.p, board);
+                else board = AddPiece(to + 10, (int)Piece.P, board);
             }
             else if (move.Castle)
             {

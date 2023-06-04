@@ -8,15 +8,15 @@ namespace chessmag.tests
     {
         private static int leafNodes = 0;
 
-        public static int Test(int depth, Board board, bool headless = true)
+        public static int Test(int depth, Board board, bool withOutput = false)
         {
             leafNodes = 0;
-            Run(depth, board, headless);
+            Run(depth, board, withOutput);
 
             return leafNodes;
         }
 
-        private static void Run(int depth, Board board, bool headless)
+        private static void Run(int depth, Board board, bool withOutput)
         {
             Assertions.CheckBoard(board);
 
@@ -35,7 +35,7 @@ namespace chessmag.tests
 
                 var move = moveList.moves[i];
 
-                if (!headless)
+                if (withOutput)
                 {
                     Console.WriteLine("--------------------------------");
                     Console.WriteLine(move + " Capture: " + move.Capture + " EnPas: " + move.EnPassant + " Promotion: " + move.Promotion);
@@ -47,7 +47,7 @@ namespace chessmag.tests
                     continue;
                 }
 
-                Run(depth - 1, board, headless);
+                Run(depth - 1, board, withOutput);
                 board = MoveCtrl.UnmakeMove(board);
             }
         }
