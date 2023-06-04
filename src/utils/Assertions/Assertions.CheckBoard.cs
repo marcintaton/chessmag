@@ -67,7 +67,7 @@ namespace chessmag.utils
                     t_board.piecesNum[t_pce] == board.piecesNum[t_pce],
                     "Inconsistency in piece counters on piece type " + (Piece)t_pce);
             }
-            Console.WriteLine(BitBoard.GetBitCount(t_board.pawns[(int)Color.WHITE]) + " " + BitBoard.GetBitCount(t_board.pawns[(int)Color.BLACK]) + " " + BitBoard.GetBitCount(t_board.pawns[(int)Color.BOTH]) + " " + board.piecesNum[(int)Piece.P] + board.piecesNum[(int)Piece.p]);
+
             // check if pawn counters match with pawn bit boards
             Debug.Assert(
                 board.piecesNum[(int)Piece.P] == BitBoard.GetBitCount(t_board.pawns[(int)Color.WHITE]),

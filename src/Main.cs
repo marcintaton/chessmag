@@ -15,14 +15,10 @@ namespace chessmag
 
             Assertions.CheckBoard(b);
 
-            // var mov = new Move((int)Square.d3, (int)Square.d4);
-
-            // Console.WriteLine(mov.Capture);
-
-
+            ///
             var result = Perft.Test(5, b);
-
             Console.WriteLine("Moves found " + result);
+            ///
         }
     }
 }
