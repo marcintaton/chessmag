@@ -34,11 +34,6 @@ namespace chessmag.utils
                         else if (PieceData.isKnight[promPce] && input[4] == 'n') return move;
                         continue;
                     }
-                    else if (promPce == (int)Piece.NONE && input.Length > 4)
-                    {
-                        return Move.NOMOVE;
-                    }
-
                     return move;
                 }
             }

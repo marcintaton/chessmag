@@ -9,7 +9,7 @@ namespace chessmag
     {
         private static void Main()
         {
-            var b = Fen.Parse(Constants.MoveTestingFEN);
+            var b = Fen.Parse(Constants.StartingFEN);
 
             while (true)
             {
@@ -36,7 +36,13 @@ namespace chessmag
                 {
                     var m = IO.ParseClassicalMove(i, b);
                     if (m.move != 0x0)
+                    {
                         b = MoveCtrl.MakeMove(m, b).board;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Couldn't parse move");
+                    }
                 }
             }
         }
