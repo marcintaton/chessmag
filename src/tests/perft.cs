@@ -43,7 +43,6 @@ namespace chessmag.tests
             {
                 leafNodes = 0;
 
-                Console.WriteLine("\n--------------------------------");
                 Console.WriteLine("\nFen: " + dataItem.fen);
 
                 Test(dataItem);

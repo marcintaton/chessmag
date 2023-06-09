@@ -9,9 +9,36 @@ namespace chessmag
     {
         private static void Main()
         {
-            var board = Fen.Parse(Constants.StartingFEN);
-            IO.PrintBoard(board);
-            Assertions.CheckBoard(board);
+            var b = Fen.Parse(Constants.MoveTestingFEN);
+
+            while (true)
+            {
+                IO.PrintBoard(b);
+                Assertions.CheckBoard(b);
+
+                Console.Write("Make your move: ");
+                var i = Console.ReadLine();
+
+                if (i?.Length == 0)
+                {
+                    continue;
+                }
+                if (i[0] == 'q')
+                {
+                    break;
+                }
+                else if (i[0] == 't')
+                {
+                    b = MoveCtrl.UnmakeMove(b);
+                    continue;
+                }
+                else
+                {
+                    var m = IO.ParseClassicalMove(i, b);
+                    if (m.move != 0x0)
+                        b = MoveCtrl.MakeMove(m, b).board;
+                }
+            }
         }
     }
 }

@@ -22,6 +22,8 @@ namespace chessmag.defs
         public int move;
         public int score;
 
+        public static Move NOMOVE { get { return new Move(0); } }
+
         public Move(int move)
         {
             this.move = move;

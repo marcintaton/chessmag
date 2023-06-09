@@ -8,6 +8,7 @@ namespace chessmag.utils
     {
         public static void PrintBoard(Board board)
         {
+            Console.WriteLine("\n--------------------------------");
             Console.WriteLine("Game Board\n");
 
             for (int rank = (int)Rank._8; rank >= (int)Rank._1; --rank)
