@@ -33,6 +33,7 @@ namespace chessmag.engine
         public ulong positionHash = 0; // a unique position hash key 
 
         public MoveUndo[] moveHist = new MoveUndo[Constants.MaxPly];
+        public PVTable pvTable = new();
 
         public Board()
         {
@@ -59,8 +60,6 @@ namespace chessmag.engine
             positionHash = 0UL;
 
             moveHist = new MoveUndo[Constants.MaxPly];
-
-            // piece list reset comes later
         }
 
         public static Board Clear()
