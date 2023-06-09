@@ -34,6 +34,7 @@ namespace chessmag.engine
 
         public MoveUndo[] moveHist = new MoveUndo[Constants.MaxPly];
         public PVTable pvTable = new();
+        public Move[] principalVariation = new Move[Constants.MaxDepth];
 
         public Board()
         {

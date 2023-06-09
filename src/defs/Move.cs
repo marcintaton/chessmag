@@ -69,5 +69,15 @@ namespace chessmag.defs
             }
             return ((Square)FromSq).ToString() + ((Square)ToSq).ToString() + prom;
         }
+
+        public static bool operator ==(Move a, Move b)
+        {
+            return a.move == b.move;
+        }
+
+        public static bool operator !=(Move a, Move b)
+        {
+            return a.move != b.move;
+        }
     }
 }
