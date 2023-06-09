@@ -42,7 +42,6 @@ namespace chessmag.utils
             Console.WriteLine("Position ID: " + Convert.ToString((long)board.positionHash, 16).ToUpper());
             Console.WriteLine("Materials: white - " + board.materials[(int)Color.WHITE] + "; black - " + board.materials[(int)Color.BLACK] + ";");
             Console.WriteLine();
-            Console.WriteLine();
         }
     }
 }
