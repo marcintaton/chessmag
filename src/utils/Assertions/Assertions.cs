@@ -42,7 +42,11 @@ namespace chessmag.utils
         public static void CastlingRightsValid(int cr, string message = "")
         {
             Debug.Assert(cr >= (int)CastlingRights.NONE && cr <= (int)CastlingRights.ALL, "Invalid Castling Rights. Found: " + cr, message);
+        }
 
+        public static void WithinMaxGameMoves(int index)
+        {
+            Debug.Assert(index >= 0 && index < Constants.MaxPly);
         }
 
         public static void Fail()

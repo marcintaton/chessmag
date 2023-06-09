@@ -1,4 +1,5 @@
-﻿using chessmag.defs;
+﻿using System.Diagnostics;
+using chessmag.defs;
 using chessmag.engine;
 using chessmag.tests;
 using chessmag.utils;
@@ -23,18 +24,18 @@ namespace chessmag
                 {
                     continue;
                 }
-                if (i[0] == 'q')
+                if (i?[0] == 'q')
                 {
                     break;
                 }
-                else if (i[0] == 't')
+                else if (i?[0] == 't')
                 {
                     b = MoveCtrl.UnmakeMove(b);
                     continue;
                 }
                 else
                 {
-                    var m = IO.ParseClassicalMove(i, b);
+                    var m = IO.ParseClassicalMove(i!.Length != 0 ? i : "", b);
                     if (m.move != 0x0)
                     {
                         b = MoveCtrl.MakeMove(m, b).board;

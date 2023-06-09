@@ -60,7 +60,9 @@ namespace chessmag.tests
             for (int depth = 1; depth <= data.moveCount.Length; depth++)
             {
                 leafNodes = 0;
+                TimeUtils.stopwatch.Start();
                 TestSinglePosition(depth, board);
+                TimeUtils.stopwatch.Stop();
                 Console.WriteLine("Depth: "
                                   + depth
                                   + "; Moves found: "
@@ -68,7 +70,8 @@ namespace chessmag.tests
                                   + "; Moves expected: "
                                   + data.moveCount[depth - 1]
                                   + "; Result: "
-                                  + (leafNodes == data.moveCount[depth - 1]));
+                                  + (leafNodes == data.moveCount[depth - 1]) + " completed in " + TimeUtils.GetSwMs() + "ms;");
+                TimeUtils.stopwatch.Reset();
             }
             Console.WriteLine();
             return leafNodes;
