@@ -12,6 +12,10 @@ namespace chessmag
         {
             var b = Fen.Parse(Constants.StartingFEN);
 
+            // MoveExists.Check(b, new Move((int)Square.e2, (int)Square.e4));
+
+            // IO.PrintBoard(b);
+
             while (true)
             {
                 IO.PrintBoard(b);

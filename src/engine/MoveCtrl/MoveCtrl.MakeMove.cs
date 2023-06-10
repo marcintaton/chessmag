@@ -116,7 +116,7 @@ namespace chessmag.engine
             }
 
             ///
-            return new MakeMoveResult(board, inCheck);
+            return new MakeMoveResult(board, !inCheck);
         }
     }
 }

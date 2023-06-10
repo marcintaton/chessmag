@@ -10,17 +10,15 @@ namespace chessmag.engine
 
             for (int i = 0; i < moveList.moves.Length; i++)
             {
-                var result = MoveCtrl.MakeMove(move, board);
-
-                if (!result.wasLegal)
-                {
-                    continue;
-                }
-                board = MoveCtrl.UnmakeMove(board);
-
                 if (moveList.moves[i].move == move.move)
                 {
-                    return true;
+                    var result = MoveCtrl.MakeMove(move, board);
+
+                    board = result.board;
+                    board = MoveCtrl.UnmakeMove(board);
+
+                    if (result.wasLegal)
+                        return true;
                 }
             }
             return false;
