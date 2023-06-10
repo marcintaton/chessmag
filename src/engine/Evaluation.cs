@@ -6,7 +6,7 @@ namespace chessmag.engine
 {
     public static class Evaluation
     {
-        private static int ApplyPositionalInfo(Board board, int piece)
+        private static int ApplyPositionalScore(Board board, int piece)
         {
             int score = 0;
             bool isWhite = PieceData.pieceColor[piece] == (int)Color.WHITE;
@@ -31,14 +31,14 @@ namespace chessmag.engine
             /// 
             // main shit goes here
 
-            score += ApplyPositionalInfo(board, (int)Piece.P);
-            score += ApplyPositionalInfo(board, (int)Piece.p);
-            score += ApplyPositionalInfo(board, (int)Piece.N);
-            score += ApplyPositionalInfo(board, (int)Piece.n);
-            score += ApplyPositionalInfo(board, (int)Piece.B);
-            score += ApplyPositionalInfo(board, (int)Piece.b);
-            score += ApplyPositionalInfo(board, (int)Piece.R);
-            score += ApplyPositionalInfo(board, (int)Piece.r);
+            score += ApplyPositionalScore(board, (int)Piece.P);
+            score += ApplyPositionalScore(board, (int)Piece.p);
+            score += ApplyPositionalScore(board, (int)Piece.N);
+            score += ApplyPositionalScore(board, (int)Piece.n);
+            score += ApplyPositionalScore(board, (int)Piece.B);
+            score += ApplyPositionalScore(board, (int)Piece.b);
+            score += ApplyPositionalScore(board, (int)Piece.R);
+            score += ApplyPositionalScore(board, (int)Piece.r);
 
             ///
             if (board.sideToMove == (int)Color.BLACK) score *= -1;
