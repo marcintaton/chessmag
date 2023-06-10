@@ -5,12 +5,12 @@ namespace chessmag.defs
     public struct MakeMoveResult
     {
         public Board board;
-        public bool inCheck;
+        public bool wasLegal;
 
-        public MakeMoveResult(Board board, bool inCheck)
+        public MakeMoveResult(Board board, bool wasLegal)
         {
             this.board = board;
-            this.inCheck = inCheck;
+            this.wasLegal = wasLegal;
         }
     }
 }

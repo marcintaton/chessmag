@@ -1,4 +1,6 @@
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+
 namespace chessmag.defs
 {
     // move structure stored in an integer
@@ -68,16 +70,6 @@ namespace chessmag.defs
                 else if (PieceData.isKnight[PcePromoted]) prom = "n";
             }
             return ((Square)FromSq).ToString() + ((Square)ToSq).ToString() + prom;
-        }
-
-        public static bool operator ==(Move a, Move b)
-        {
-            return a.move == b.move;
-        }
-
-        public static bool operator !=(Move a, Move b)
-        {
-            return a.move != b.move;
         }
     }
 }

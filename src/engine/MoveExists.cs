@@ -10,11 +10,15 @@ namespace chessmag.engine
 
             for (int i = 0; i < moveList.moves.Length; i++)
             {
-                // check if move is valid and actually rework makemove so that it doesnt fail if move is invalid
-                board = MoveCtrl.MakeMove(move, board).board;
+                var result = MoveCtrl.MakeMove(move, board);
+
+                if (!result.wasLegal)
+                {
+                    continue;
+                }
                 board = MoveCtrl.UnmakeMove(board);
 
-                if (moveList.moves[i] == move)
+                if (moveList.moves[i].move == move.move)
                 {
                     return true;
                 }

@@ -99,7 +99,7 @@ namespace chessmag.tests
                 // Console.WriteLine(move + " Capture: " + move.Capture + " EnPas: " + move.EnPassant + " Promotion: " + move.Promotion);
                 // IO.PrintBoard(board);
 
-                if (result.inCheck)
+                if (result.wasLegal)
                 {
                     continue;
                 }
