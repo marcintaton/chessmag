@@ -36,6 +36,9 @@ namespace chessmag.engine
         public PVTable pvTable = new();
         public Move[] principalVariation = new Move[Constants.MaxDepth];
 
+        public int[,] searchHistory = new int[13, Constants.BoardSize];
+        public int[,] searchKillers = new int[2, Constants.MaxDepth];
+
         public Board()
         {
             Array.Fill(pieces, (int)Piece.NONE);
