@@ -1,6 +1,6 @@
 namespace chessmag.defs
 {
-    public struct SearchData
+    public struct SearchInfo
     {
         public int startTime;
         public int stopTime;
