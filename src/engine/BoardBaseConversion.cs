@@ -29,6 +29,14 @@ namespace chessmag.engine
             return Board120to64[sq120] == 65;
         }
 
+        public static int Mirror64(int sq64)
+        {
+            int rank = Sq120ToRank[Board64to120[sq64]];
+            int file = Sq120ToFile[Board64to120[sq64]];
+
+            return 0;
+        }
+
         static BoardBaseConversion()
         {
             for (int rank = (int)Rank._1; rank <= (int)Rank._8; ++rank)
