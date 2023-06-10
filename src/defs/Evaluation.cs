@@ -46,6 +46,18 @@ namespace chessmag.defs
             0   ,   0   ,   5   ,   10  ,   10  ,   5   ,   0   ,   0   ,
         };
 
+        public static int[] GetEvalTableFor(int piece)
+        {
+            return piece switch
+            {
+                (int)Piece.P or (int)Piece.p => pawn,
+                (int)Piece.N or (int)Piece.n => knight,
+                (int)Piece.B or (int)Piece.b => bishop,
+                (int)Piece.R or (int)Piece.r => rook,
+                _ => new int[64],
+            };
+        }
+
         public PositionalEvaluation()
         {
         }
