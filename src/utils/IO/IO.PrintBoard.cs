@@ -16,7 +16,7 @@ namespace chessmag.utils
                 Console.Write((rank + 1) + "  ");
                 for (int file = (int)File.a; file <= (int)File.h; ++file)
                 {
-                    int sq = BoardBaseConversion.FrTo120(file, rank);
+                    int sq = BBC.FrTo120(file, rank);
                     int piece = board.pieces[sq];
                     if (piece != (int)Piece.NONE)
                         Console.Write(" " + (Piece)piece);

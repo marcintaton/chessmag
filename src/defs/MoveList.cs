@@ -40,7 +40,7 @@ namespace chessmag.defs
             int promotionRank = color == (int)Color.WHITE ? (int)Rank._7 : (int)Rank._2;
             int promPieceStart = color == (int)Color.WHITE ? (int)Piece.R : (int)Piece.r;
 
-            if (BoardBaseConversion.Sq120ToRank[move.FromSq] == promotionRank)
+            if (BBC.Sq120ToRank[move.FromSq] == promotionRank)
             {
                 for (int i = 0; i < 4; i++)
                 {

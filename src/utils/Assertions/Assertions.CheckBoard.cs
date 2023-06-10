@@ -46,7 +46,7 @@ namespace chessmag.utils
             // by looping through the board
             for (int sq64 = 0; sq64 < 64; sq64++)
             {
-                int sq = BoardBaseConversion.Board64to120[sq64];
+                int sq = BBC.Board64to120[sq64];
                 int t_pce = board.pieces[sq];
                 if (t_pce >= (int)Piece.P && t_pce <= (int)Piece.k)
                 {
@@ -84,7 +84,7 @@ namespace chessmag.utils
             {
                 var result = BitBoard.PopBit(t_board.pawns[(int)Color.WHITE]);
                 t_board.pawns[(int)Color.WHITE] = result.Item1;
-                int sq = board.pieces[BoardBaseConversion.Board64to120[result.Item2]];
+                int sq = board.pieces[BBC.Board64to120[result.Item2]];
                 Debug.Assert(
                     sq == (int)Piece.P,
                     "Mismatch between white pawn positions in pieces array and pawn bitboard");
@@ -94,7 +94,7 @@ namespace chessmag.utils
             {
                 var result = BitBoard.PopBit(t_board.pawns[(int)Color.BLACK]);
                 t_board.pawns[(int)Color.BLACK] = result.Item1;
-                int sq = board.pieces[BoardBaseConversion.Board64to120[result.Item2]];
+                int sq = board.pieces[BBC.Board64to120[result.Item2]];
                 Debug.Assert(
                     sq == (int)Piece.p,
                     "Mismatch between black pawn positions in pieces array and pawn bitboard");
@@ -104,7 +104,7 @@ namespace chessmag.utils
             {
                 var result = BitBoard.PopBit(t_board.pawns[(int)Color.BOTH]);
                 t_board.pawns[(int)Color.BOTH] = result.Item1;
-                int sq = board.pieces[BoardBaseConversion.Board64to120[result.Item2]];
+                int sq = board.pieces[BBC.Board64to120[result.Item2]];
                 Debug.Assert(
                     sq == (int)Piece.P || sq == (int)Piece.p,
                     "Mismatch between any pawn positions in pieces array and pawn bitboard");
@@ -134,9 +134,9 @@ namespace chessmag.utils
 
             // check en passant square stuff
             Debug.Assert(board.enPasSq == (int)Square.NONE
-                || (BoardBaseConversion.Sq120ToRank[board.enPasSq] == (int)Rank._6 && board.sideToMove == (int)Color.WHITE)
-                || (BoardBaseConversion.Sq120ToRank[board.enPasSq] == (int)Rank._3 && board.sideToMove == (int)Color.BLACK),
-                $"En passant square found on unexpected rank. Expected rank 6 for white or rank 3 for black. Found: rank {BoardBaseConversion.Sq120ToRank[board.enPasSq]} side to move: {(Color)board.sideToMove}");
+                || (BBC.Sq120ToRank[board.enPasSq] == (int)Rank._6 && board.sideToMove == (int)Color.WHITE)
+                || (BBC.Sq120ToRank[board.enPasSq] == (int)Rank._3 && board.sideToMove == (int)Color.BLACK),
+                $"En passant square found on unexpected rank. Expected rank 6 for white or rank 3 for black. Found: rank {BBC.Sq120ToRank[board.enPasSq]} side to move: {(Color)board.sideToMove}");
 
             // check kings' positions
             Debug.Assert(

@@ -16,8 +16,8 @@ namespace chessmag.utils
 
                 for (int file = (int)File.a; file <= (int)File.h; ++file)
                 {
-                    int sq120 = BoardBaseConversion.FrTo120(file, rank);
-                    int sq64 = BoardBaseConversion.Board120to64[sq120];
+                    int sq120 = BBC.FrTo120(file, rank);
+                    int sq64 = BBC.Board120to64[sq120];
                     if (((1UL << sq64) & board) != 0)
                     {
                         Console.Write("@");

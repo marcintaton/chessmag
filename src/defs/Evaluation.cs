@@ -2,7 +2,7 @@ namespace chessmag.defs
 {
     public struct PositionalEvaluation
     {
-        public int[] pawn = {
+        public static int[] pawn = {
             0   ,   0   ,   0   ,   0   ,   0   ,   0   ,   0   ,   0,
             10  ,   10  ,   0   ,   -10 ,   -10 ,   0   ,   10  ,   10,
             5   ,   0   ,   0   ,   5   ,   5   ,   0   ,   0   ,   5,
@@ -13,7 +13,7 @@ namespace chessmag.defs
             0   ,   0   ,   0   ,   0   ,   0   ,   0   ,   0   ,   0,
         };
 
-        public int[] knight = {
+        public static int[] knight = {
             0   ,   -10 ,   0   ,   0   ,   0   ,   0   ,   -10 ,   0   ,
             0   ,   0   ,   0   ,   5   ,   5   ,   0   ,   0   ,   0   ,
             0   ,   0   ,   10  ,   10  ,   10  ,   10  ,   0   ,   0   ,
@@ -24,7 +24,7 @@ namespace chessmag.defs
             0   ,   0   ,   0   ,   0   ,   0   ,   0   ,   0   ,   0   ,
         };
 
-        public int[] bishop = {
+        public static int[] bishop = {
             0   ,   0   ,   -10 ,   0   ,   0   ,   -10 ,   0   ,   0   ,
             0   ,   10  ,   0   ,   0   ,   0   ,   0   ,   10  ,   0   ,
             0   ,   0   ,   10  ,   15  ,   15  ,   10  ,   0   ,   0   ,
@@ -35,7 +35,7 @@ namespace chessmag.defs
             0   ,   0   ,   0   ,   0   ,   0   ,   0   ,   0   ,   0   ,
         };
 
-        public int[] rook = {
+        public static int[] rook = {
             0   ,   0   ,   5   ,   10  ,   10  ,   5   ,   0   ,   0   ,
             0   ,   0   ,   5   ,   10  ,   10  ,   5   ,   0   ,   0   ,
             0   ,   0   ,   0   ,   0   ,   0   ,   0   ,   0   ,   0   ,

@@ -40,7 +40,7 @@ namespace chessmag.engine
                 int dir = PieceData.rookMovePattern[i];
                 int t_sq120 = sq120 + dir;
                 int piece = board.pieces[t_sq120];
-                while (!BoardBaseConversion.IsOffboard(t_sq120))
+                while (!BBC.IsOffboard(t_sq120))
                 {
                     if (piece != (int)Piece.NONE)
                     {
@@ -61,7 +61,7 @@ namespace chessmag.engine
                 int dir = PieceData.bishopMovePattern[i];
                 int t_sq120 = sq120 + dir;
                 int piece = board.pieces[t_sq120];
-                while (!BoardBaseConversion.IsOffboard(t_sq120))
+                while (!BBC.IsOffboard(t_sq120))
                 {
                     if (piece != (int)Piece.NONE)
                     {

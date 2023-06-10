@@ -4,7 +4,7 @@ using File = chessmag.defs.File;
 namespace chessmag.engine
 {
     // Board Base Conversion
-    public static class BoardBaseConversion
+    public static class BBC
     {
         public static int[] Board64to120 { get; } = Enumerable.Repeat(120, 64).ToArray();
 
@@ -37,7 +37,7 @@ namespace chessmag.engine
             return Board120to64[sq120] == 65;
         }
 
-        static BoardBaseConversion()
+        static BBC()
         {
             for (int rank = (int)Rank._1; rank <= (int)Rank._8; ++rank)
             {

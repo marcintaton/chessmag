@@ -71,8 +71,8 @@ namespace chessmag.engine
 
                 for (int i = 0; i < count; i++)
                 {
-                    int sq64 = BoardBaseConversion.FrTo64(file, rank);
-                    int sq120 = BoardBaseConversion.Board64to120[sq64];
+                    int sq64 = BBC.FrTo64(file, rank);
+                    int sq120 = BBC.Board64to120[sq64];
                     if (piece != (int)Piece.NONE)
                     {
                         pos.pieces[sq120] = piece;
@@ -111,7 +111,7 @@ namespace chessmag.engine
                 Assertions.FileRankValid(enpas_file);
                 Assertions.FileRankValid(enpas_rank);
 
-                pos.enPasSq = BoardBaseConversion.FrTo120(enpas_file, enpas_rank);
+                pos.enPasSq = BBC.FrTo120(enpas_file, enpas_rank);
             }
 
             // fifty move 

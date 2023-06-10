@@ -8,7 +8,7 @@ namespace chessmag.utils
     {
         public static void SqOnBoard(int sq120, string message = "")
         {
-            Debug.Assert(!BoardBaseConversion.IsOffboard(sq120), "Square is outside of the board. Square: " + sq120, message);
+            Debug.Assert(!BBC.IsOffboard(sq120), "Square is outside of the board. Square: " + sq120, message);
         }
 
         public static void SideValid(int side, string message = "")
@@ -24,8 +24,8 @@ namespace chessmag.utils
         public static void EnPasSquareValid(int sq120, int side, string message = "")
         {
             Debug.Assert(
-                   (side == (int)Color.WHITE && BoardBaseConversion.Sq120ToRank[sq120] == (int)Rank._3)
-                || (side == (int)Color.BLACK && BoardBaseConversion.Sq120ToRank[sq120] == (int)Rank._6),
+                   (side == (int)Color.WHITE && BBC.Sq120ToRank[sq120] == (int)Rank._3)
+                || (side == (int)Color.BLACK && BBC.Sq120ToRank[sq120] == (int)Rank._6),
                 "EP square on invalid rank.", message);
         }
 

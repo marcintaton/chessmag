@@ -13,8 +13,8 @@ namespace chessmag.utils
             if (input[1] > '8' || input[1] < '1') return Move.NONE;
             if (input[3] > '8' || input[3] < '1') return Move.NONE;
 
-            int from = BoardBaseConversion.FrTo120(input[0] - 'a', input[1] - '1');
-            int to = BoardBaseConversion.FrTo120(input[2] - 'a', input[3] - '1');
+            int from = BBC.FrTo120(input[0] - 'a', input[1] - '1');
+            int to = BBC.FrTo120(input[2] - 'a', input[3] - '1');
 
             Assertions.SqOnBoard(from);
             Assertions.SqOnBoard(to);

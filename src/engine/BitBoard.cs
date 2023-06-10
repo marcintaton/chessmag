@@ -14,7 +14,7 @@ namespace chessmag.engine
 
         public static ulong SetBit(ulong bb, int sq120)
         {
-            bb |= 1Ul << BoardBaseConversion.Board120to64[sq120];
+            bb |= 1Ul << BBC.Board120to64[sq120];
             return bb;
         }
 
@@ -26,7 +26,7 @@ namespace chessmag.engine
 
         public static ulong UnsetBit(ulong bb, int sq120)
         {
-            bb &= ~(1Ul << BoardBaseConversion.Board120to64[sq120]);
+            bb &= ~(1Ul << BBC.Board120to64[sq120]);
             return bb;
         }
 
