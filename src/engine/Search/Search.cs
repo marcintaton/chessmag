@@ -11,6 +11,13 @@ namespace chessmag.engine
 
         public static Board PrepForSearch(Board board, SearchInfo sInfo)
         {
+            board.searchHistory = new int[13, Constants.BoardSize];
+            board.searchKillers = new int[2, Constants.MaxDepth];
+
+            board.pvTable = new PVTable();
+
+            board.ply = 0;
+
             return board;
         }
 

@@ -16,7 +16,8 @@ namespace chessmag
 
             var eval = Evaluation.Get(b);
 
-            Console.WriteLine(eval);
+            Console.WriteLine(b.searchHistory[3, 20]);
+
 
             // MoveExists.Check(b, new Move((int)Square.e2, (int)Square.e4));
 

@@ -1,8 +1,6 @@
-using chessmag.engine;
 
 namespace chessmag.defs
 {
-
     public struct PVElement
     {
         public ulong positionHash;
