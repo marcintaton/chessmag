@@ -1,3 +1,5 @@
+using chessmag.engine;
+
 namespace chessmag.defs
 {
 
@@ -29,5 +31,21 @@ namespace chessmag.defs
         }
     }
 
+    public struct PVLine
+    {
+        public Move[] line;
+        public int count;
 
+        public PVLine()
+        {
+            line = new Move[Constants.MaxDepth];
+            count = 0;
+        }
+
+        public PVLine(Move[] line, int count)
+        {
+            this.line = line;
+            this.count = count;
+        }
+    }
 }

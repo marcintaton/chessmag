@@ -37,11 +37,24 @@ namespace chessmag
                     b = MoveCtrl.UnmakeMove(b);
                     continue;
                 }
+                else if (i?[0] == 'p')
+                {
+                    var pv = PV.GetPvLine(b, 4);
+                    b.principalVariation = pv.line;
+                    Console.WriteLine("PV line of depth " + pv.count);
+                    for (int j = 0; j < pv.count; j++)
+                    {
+                        var move = b.principalVariation[j];
+                        Console.WriteLine(move.ToString());
+                    }
+
+                }
                 else
                 {
                     var m = IO.ParseClassicalMove(i!.Length != 0 ? i : "", b);
-                    if (m.move != 0x0)
+                    if (m.move != Move.NOMOVE)
                     {
+                        b = PV.Store(b, m);
                         b = MoveCtrl.MakeMove(m, b).board;
                     }
                     else

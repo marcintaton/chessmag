@@ -24,12 +24,13 @@ namespace chessmag.defs
         public int move;
         public int score;
 
-        public static Move NOMOVE { get { return new Move(0); } }
+        public static Move NONE { get { return new Move(0); } }
+        public static int NOMOVE { get { return 0x0; } }
 
         public Move(int move)
         {
             this.move = move;
-            this.score = 0;
+            score = 0;
         }
 
         public Move(

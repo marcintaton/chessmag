@@ -7,11 +7,11 @@ namespace chessmag.utils
     {
         public static Move ParseClassicalMove(string input, Board board)
         {
-            if (input.Length > 5) return Move.NOMOVE;
-            if (input[0] > 'h' || input[0] < 'a') return Move.NOMOVE;
-            if (input[2] > 'h' || input[2] < 'a') return Move.NOMOVE;
-            if (input[1] > '8' || input[1] < '1') return Move.NOMOVE;
-            if (input[3] > '8' || input[3] < '1') return Move.NOMOVE;
+            if (input.Length > 5) return Move.NONE;
+            if (input[0] > 'h' || input[0] < 'a') return Move.NONE;
+            if (input[2] > 'h' || input[2] < 'a') return Move.NONE;
+            if (input[1] > '8' || input[1] < '1') return Move.NONE;
+            if (input[3] > '8' || input[3] < '1') return Move.NONE;
 
             int from = BoardBaseConversion.FrTo120(input[0] - 'a', input[1] - '1');
             int to = BoardBaseConversion.FrTo120(input[2] - 'a', input[3] - '1');
@@ -38,12 +38,12 @@ namespace chessmag.utils
                 }
             }
 
-            return Move.NOMOVE;
+            return Move.NONE;
         }
 
         public static Move ParseCrazyhouseMoveMove(string input, Board board)
         {
-            return Move.NOMOVE;
+            return Move.NONE;
 
         }
 

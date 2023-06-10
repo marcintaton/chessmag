@@ -49,6 +49,11 @@ namespace chessmag.utils
             Debug.Assert(index >= 0 && index < Constants.MaxPly);
         }
 
+        public static void WithinMaxDepth(int depth)
+        {
+            Debug.Assert(depth >= 0 && depth < Constants.MaxDepth);
+        }
+
         public static void Fail()
         {
             Debug.Fail("Whatever this is, it should have never happened");
