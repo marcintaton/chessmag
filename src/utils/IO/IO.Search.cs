@@ -2,10 +2,8 @@ using chessmag.defs;
 
 namespace chessmag.utils
 {
-
     public static partial class IO
     {
-
         public static void PrintSearchInfo(Move bestMove, int depth, SearchInfo sInfo, PVLine pvLine)
         {
             Console.WriteLine("Found on depth: " + depth + " move: " + bestMove.ToString() + " Nodes: " + sInfo.nodes);
@@ -16,7 +14,6 @@ namespace chessmag.utils
             }
             Console.WriteLine("Ordering: " + (sInfo.failHighFirst / sInfo.failHigh));
         }
-
 
         public static void PrintScore(int bestScore)
         {
