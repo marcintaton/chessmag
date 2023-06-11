@@ -21,17 +21,16 @@ namespace chessmag.defs
         private const int castleMask = 0x1000000;
         private const int captureMask = 0x7C000;
         private const int promotionMask = 0xF00000;
-        public int move;
-        public int score;
+        public int move = 0;
+        public int score = 0;
 
         public static Move NONE { get { return new Move(0); } }
-        public static Move SEARCH_NEG { get { return new Move(0, -Constants.Infinity); } }
+        public static Move SEARCH_NEG { get { return new Move(0) { score = -Constants.Infinity }; } }
         public static int NOMOVE { get { return 0x0; } }
 
-        public Move(int move, int score = 0)
+        public Move(int move)
         {
             this.move = move;
-            this.score = score;
         }
 
         public Move(
@@ -71,7 +70,7 @@ namespace chessmag.defs
                 else if (PieceData.isBishop[PcePromoted]) prom = "b";
                 else if (PieceData.isKnight[PcePromoted]) prom = "n";
             }
-            return ((Square)FromSq).ToString() + ((Square)ToSq).ToString() + prom;
+            return ((Square)FromSq).ToString() + ((Square)ToSq).ToString() + prom + " ; score = " + score;
         }
     }
 }

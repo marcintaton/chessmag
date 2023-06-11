@@ -52,7 +52,8 @@ namespace chessmag.engine
 
                 abRes.score *= -1;
 
-                board = MoveCtrl.UnmakeMove(board);
+                board = MoveCtrl.UnmakeMove(abRes.board);
+                sInfo = abRes.sInfo;
 
                 if (abRes.score > alpha)
                 {
@@ -83,6 +84,7 @@ namespace chessmag.engine
 
             if (alpha != originalAlpha)
             {
+                bestMove.score = alpha;
                 PV.Store(board, bestMove);
             }
 

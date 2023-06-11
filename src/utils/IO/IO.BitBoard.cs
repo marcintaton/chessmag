@@ -33,5 +33,6 @@ namespace chessmag.utils
             Console.WriteLine("   abcdefgh");
             Console.WriteLine();
         }
+
     }
 }

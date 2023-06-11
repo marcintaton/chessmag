@@ -42,7 +42,6 @@ namespace chessmag.engine
 
             ///
             if (board.sideToMove == (int)Color.BLACK) score *= -1;
-
             return score;
         }
     }

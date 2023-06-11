@@ -30,8 +30,9 @@ namespace chessmag.engine
                 bestMove = board.principalVariation[0];
 
                 IO.PrintSearchInfo(bestMove, currentDepth, sInfo, pvLine);
-
             }
+
+            IO.PrintScore(bestScore);
         }
     }
 }
