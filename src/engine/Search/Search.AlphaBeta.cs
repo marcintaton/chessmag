@@ -58,6 +58,8 @@ namespace chessmag.engine
                 {
                     if (abRes.score >= beta)
                     {
+                        if (legalMoves == 1) sInfo.failHighFirst++;
+                        sInfo.failHigh++;
                         return new ABResult(board, sInfo, beta);
                     }
                     alpha = abRes.score;

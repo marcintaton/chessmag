@@ -10,18 +10,15 @@ namespace chessmag
     {
         private static void Main()
         {
-            var b = Fen.Parse(Constants.TestFEN1);
+            var b = Fen.Parse(Constants.StartingFEN);
 
-            IO.PrintBoard(b);
+            // var info = new SearchInfo
+            // {
+            //     depth = 4
+            // };
+            // Search.SearchPosition(b, info);
 
-            var eval = Evaluation.Get(b);
-
-            Console.WriteLine(b.searchHistory[3, 20]);
-
-
-            // MoveExists.Check(b, new Move((int)Square.e2, (int)Square.e4));
-
-            // IO.PrintBoard(b);
+            var moveList = MoveGenerator.GenerateAllMoves(b);
 
             // while (true)
             // {
@@ -44,17 +41,13 @@ namespace chessmag
             //         b = MoveCtrl.UnmakeMove(b);
             //         continue;
             //     }
-            //     else if (i?[0] == 'p')
+            //     else if (i?[0] == 's')
             //     {
-            //         var pv = PV.GetPvLine(b, 4);
-            //         b.principalVariation = pv.line;
-            //         Console.WriteLine("PV line of depth " + pv.count);
-            //         for (int j = 0; j < pv.count; j++)
+            //         var info = new SearchInfo
             //         {
-            //             var move = b.principalVariation[j];
-            //             Console.WriteLine(move.ToString());
-            //         }
-
+            //             depth = 4
+            //         };
+            //         Search.SearchPosition(b, info);
             //     }
             //     else
             //     {

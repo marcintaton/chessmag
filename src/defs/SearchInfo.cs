@@ -23,6 +23,8 @@ namespace chessmag.defs
             startTime = TimeUtils.stopwatch.ElapsedMilliseconds;
             stopped = 0;
             nodes = 0;
+            failHigh = 0;
+            failHighFirst = 0;
         }
     }
 }

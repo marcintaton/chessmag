@@ -14,6 +14,7 @@ namespace chessmag.utils
             {
                 Console.WriteLine(i + ": " + pvLine.line[i].ToString());
             }
+            Console.WriteLine("Ordering: " + (sInfo.failHigh / sInfo.failHighFirst));
         }
     }
 }
