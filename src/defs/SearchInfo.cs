@@ -14,6 +14,8 @@ namespace chessmag.defs
         public long nodes;
         public int quit;
         public int stopped;
+        public float failHigh;
+        public float failHighFirst;
 
         public void Reset()
         {

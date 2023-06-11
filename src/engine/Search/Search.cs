@@ -22,12 +22,6 @@ namespace chessmag.engine
             return board;
         }
 
-        public static ABResult AlphaBeta(int alpha, int beta, int depth, Board board, SearchInfo sInfo, bool doNULL)
-        {
-            // does AB modify board and info 
-            return new ABResult(board, sInfo, 0);
-        }
-
         public static int Quiescence(int alpha, int beta, Board board, SearchInfo sInfo)
         {
             return 0;

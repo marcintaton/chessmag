@@ -19,11 +19,14 @@ namespace chessmag.engine
                 // call aB
                 var result = AlphaBeta(-Constants.Infinity, Constants.Infinity, currentDepth, board, sInfo, true);
 
+                // check for time constraints
+
                 board = result.board;
                 sInfo = result.sInfo;
                 bestScore = result.score;
 
                 PVLine pvLine = PV.GetPvLine(board, currentDepth);
+                board.principalVariation = pvLine.line;
                 bestMove = board.principalVariation[0];
 
                 IO.PrintSearchInfo(bestMove, currentDepth, sInfo, pvLine);
