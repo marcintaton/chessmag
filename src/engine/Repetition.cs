@@ -7,7 +7,7 @@ namespace chessmag.engine
         public static bool Check(Board board)
         {
 
-            for (int i = board.histPly - 1; i >= 0; i--)
+            for (int i = board.gamePly - 1; i >= 0; i--)
             {
                 Assertions.WithinMaxGameMoves(i);
 

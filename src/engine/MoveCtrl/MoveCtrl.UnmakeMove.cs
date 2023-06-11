@@ -9,12 +9,12 @@ namespace chessmag.engine
         {
             Assertions.CheckBoard(board);
 
-            if (board.histPly == 0) return board;
+            if (board.gamePly == 0) return board;
 
-            board.histPly--;
+            board.gamePly--;
             board.ply--;
 
-            Move move = board.moveHist[board.histPly].move;
+            Move move = board.moveHist[board.gamePly].move;
             int from = move.FromSq;
             int to = move.ToSq;
 
@@ -24,9 +24,9 @@ namespace chessmag.engine
             if (board.enPasSq != (int)Square.NONE) board.positionHash = HashEp(board);
             board.positionHash = HashCR(board);
 
-            board.castlingRights = board.moveHist[board.histPly].castlingRights;
-            board.fiftyMoveCtr = board.moveHist[board.histPly].fiftyMoveCtr;
-            board.enPasSq = board.moveHist[board.histPly].enPasSq;
+            board.castlingRights = board.moveHist[board.gamePly].castlingRights;
+            board.fiftyMoveCtr = board.moveHist[board.gamePly].fiftyMoveCtr;
+            board.enPasSq = board.moveHist[board.gamePly].enPasSq;
 
             if (board.enPasSq != (int)Square.NONE) board.positionHash = HashEp(board);
             board.positionHash = HashCR(board);

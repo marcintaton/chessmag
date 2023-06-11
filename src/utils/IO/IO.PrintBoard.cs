@@ -37,8 +37,8 @@ namespace chessmag.utils
                 (CastlingRights)(board.castlingRights & (int)CastlingRights.q) != CastlingRights.NONE ? (CastlingRights)(board.castlingRights & (int)CastlingRights.q) : "");
             if (board.castlingRights == (int)CastlingRights.NONE) Console.Write("-\n"); else Console.Write("\n");
             Console.WriteLine("EnPassant Square " + (Square)board.enPasSq);
-            Console.WriteLine("Move: " + Math.Ceiling((double)board.histPly / 2));
-            Console.WriteLine("Ply: " + board.histPly);
+            Console.WriteLine("Move: " + Math.Ceiling((double)board.gamePly / 2));
+            Console.WriteLine("Ply: " + board.gamePly);
             Console.WriteLine("Fifty moves: " + board.fiftyMoveCtr);
             Console.WriteLine("Position ID: " + Convert.ToString((long)board.positionHash, 16).ToUpper());
             Console.WriteLine("Materials: white - " + board.materials[(int)Color.WHITE] + "; black - " + board.materials[(int)Color.BLACK] + ";");

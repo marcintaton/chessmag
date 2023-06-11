@@ -25,12 +25,13 @@ namespace chessmag.defs
         public int score;
 
         public static Move NONE { get { return new Move(0); } }
+        public static Move SEARCH_NEG { get { return new Move(0, -Constants.Infinity); } }
         public static int NOMOVE { get { return 0x0; } }
 
-        public Move(int move)
+        public Move(int move, int score = 0)
         {
             this.move = move;
-            score = 0;
+            this.score = score;
         }
 
         public Move(

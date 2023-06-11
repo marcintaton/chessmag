@@ -19,7 +19,7 @@ namespace chessmag.engine
             Assertions.SideValid(side);
             Assertions.PieceValid(piece);
 
-            board.moveHist[board.histPly].positionHash = board.positionHash;
+            board.moveHist[board.gamePly].positionHash = board.positionHash;
 
             if (move.EnPassant)
             {
@@ -51,10 +51,10 @@ namespace chessmag.engine
             if (board.enPasSq != (int)Square.NONE) board.positionHash = HashEp(board);
             board.positionHash = HashCR(board);
 
-            board.moveHist[board.histPly].move = move;
-            board.moveHist[board.histPly].fiftyMoveCtr = board.fiftyMoveCtr;
-            board.moveHist[board.histPly].enPasSq = board.enPasSq;
-            board.moveHist[board.histPly].castlingRights = board.castlingRights;
+            board.moveHist[board.gamePly].move = move;
+            board.moveHist[board.gamePly].fiftyMoveCtr = board.fiftyMoveCtr;
+            board.moveHist[board.gamePly].enPasSq = board.enPasSq;
+            board.moveHist[board.gamePly].castlingRights = board.castlingRights;
 
             board.castlingRights &= castlePerms[from];
             board.castlingRights &= castlePerms[to];
@@ -72,7 +72,7 @@ namespace chessmag.engine
             }
 
             board.ply++;
-            board.histPly++;
+            board.gamePly++;
 
             if (PieceData.isPawn[piece])
             {
