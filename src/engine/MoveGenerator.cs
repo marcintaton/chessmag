@@ -38,22 +38,22 @@ namespace chessmag.engine
 
                 if (board.pieces[sq120 + (10 * directionMod)] == (int)Piece.NONE)
                 {
-                    moveList.AddPawnMove(new Move(sq120, sq120 + (10 * directionMod)), color);
+                    moveList.AddPawnMove(new Move(sq120, sq120 + (10 * directionMod)), board);
                     if (BBC.Sq120ToRank[sq120] == pawnStartRank && board.pieces[sq120 + (20 * directionMod)] == (int)Piece.NONE)
                     {
-                        moveList.AddQuietMove(new Move(sq120, sq120 + (20 * directionMod), (int)Piece.NONE, (int)Piece.NONE, false, true));
+                        moveList.AddQuietMove(new Move(sq120, sq120 + (20 * directionMod), (int)Piece.NONE, (int)Piece.NONE, false, true), board);
                     }
                 }
 
                 // gen captures (with promotions)
                 if (!BBC.IsOffboard(sq120 + (9 * directionMod)) && PieceData.pieceColor[board.pieces[sq120 + (9 * directionMod)]] == oppositeColor)
                 {
-                    moveList.AddPawnMove(new Move(sq120, sq120 + (9 * directionMod), board.pieces[sq120 + (9 * directionMod)]), color);
+                    moveList.AddPawnMove(new Move(sq120, sq120 + (9 * directionMod), board.pieces[sq120 + (9 * directionMod)]), board);
                 }
 
                 if (!BBC.IsOffboard(sq120 + (11 * directionMod)) && PieceData.pieceColor[board.pieces[sq120 + (11 * directionMod)]] == oppositeColor)
                 {
-                    moveList.AddPawnMove(new Move(sq120, sq120 + (11 * directionMod), board.pieces[sq120 + (11 * directionMod)]), color);
+                    moveList.AddPawnMove(new Move(sq120, sq120 + (11 * directionMod), board.pieces[sq120 + (11 * directionMod)]), board);
                 }
 
                 // generate en passant
@@ -124,7 +124,7 @@ namespace chessmag.engine
                             }
 
                             // normal move
-                            moveList.AddQuietMove(new Move(sq120, t_sq120));
+                            moveList.AddQuietMove(new Move(sq120, t_sq120), board);
                             t_sq120 += direction;
                         }
                     }
@@ -168,7 +168,7 @@ namespace chessmag.engine
                         }
 
                         // normal move
-                        moveList.AddQuietMove(new Move(sq120, t_sq120));
+                        moveList.AddQuietMove(new Move(sq120, t_sq120), board);
                     }
                 }
             }
@@ -187,7 +187,7 @@ namespace chessmag.engine
                     && !Attack.IsSquareAttacked((int)Square.g1, (int)Color.BLACK, board))
                 {
                     // gen castling move K
-                    moveList.AddQuietMove(new Move((int)Square.e1, (int)Square.g1, (int)Piece.NONE, (int)Piece.NONE, false, false, true));
+                    moveList.AddQuietMove(new Move((int)Square.e1, (int)Square.g1, (int)Piece.NONE, (int)Piece.NONE, false, false, true), board);
                 }
                 if ((board.castlingRights & (int)CastlingRights.Q) != 0
                     && board.pieces[(int)Square.d1] == (int)Piece.NONE
@@ -198,7 +198,7 @@ namespace chessmag.engine
                     && !Attack.IsSquareAttacked((int)Square.c1, (int)Color.BLACK, board))
                 {
                     // gen castling move Q
-                    moveList.AddQuietMove(new Move((int)Square.e1, (int)Square.c1, (int)Piece.NONE, (int)Piece.NONE, false, false, true));
+                    moveList.AddQuietMove(new Move((int)Square.e1, (int)Square.c1, (int)Piece.NONE, (int)Piece.NONE, false, false, true), board);
                 }
             }
             else
@@ -211,7 +211,7 @@ namespace chessmag.engine
                     && !Attack.IsSquareAttacked((int)Square.g8, (int)Color.WHITE, board))
                 {
                     // gen castling move k
-                    moveList.AddQuietMove(new Move((int)Square.e8, (int)Square.g8, (int)Piece.NONE, (int)Piece.NONE, false, false, true));
+                    moveList.AddQuietMove(new Move((int)Square.e8, (int)Square.g8, (int)Piece.NONE, (int)Piece.NONE, false, false, true), board);
                 }
                 if ((board.castlingRights & (int)CastlingRights.q) != 0
                     && board.pieces[(int)Square.d8] == (int)Piece.NONE
@@ -222,7 +222,7 @@ namespace chessmag.engine
                     && !Attack.IsSquareAttacked((int)Square.c8, (int)Color.WHITE, board))
                 {
                     // gen castling move q
-                    moveList.AddQuietMove(new Move((int)Square.e8, (int)Square.c8, (int)Piece.NONE, (int)Piece.NONE, false, false, true));
+                    moveList.AddQuietMove(new Move((int)Square.e8, (int)Square.c8, (int)Piece.NONE, (int)Piece.NONE, false, false, true), board);
                 }
             }
             return moveList;

@@ -16,7 +16,7 @@ namespace chessmag
 
             var info = new SearchInfo
             {
-                depth = 5
+                depth = 6
             };
             Search.SearchPosition(b, info);
 

@@ -36,6 +36,19 @@ namespace chessmag.engine
             int legalMoves = 0;
             int originalAlpha = alpha;
             Move bestMove = Move.SEARCH_NEG;
+            Move pvMove = PV.Probe(board);
+
+            if (pvMove.move != Move.NOMOVE)
+            {
+                for (int i = 0; i < moveList.count; i++)
+                {
+                    if (moveList.moves[i].move == pvMove.move)
+                    {
+                        moveList.moves[i].score = MoveOrdering.ALWAYS_FIRST;
+                        break;
+                    }
+                }
+            }
 
             for (int i = 0; i < moveList.count; i++)
             {
@@ -63,10 +76,23 @@ namespace chessmag.engine
                     {
                         if (legalMoves == 1) sInfo.failHighFirst++;
                         sInfo.failHigh++;
+
+                        if (!moveList.moves[i].Capture)
+                        {
+                            board.searchKillers[1, board.ply] = board.searchKillers[0, board.ply];
+                            board.searchKillers[0, board.ply] = moveList.moves[i];
+                        }
+
                         return new ABResult(board, sInfo, beta);
                     }
                     alpha = abRes.score;
                     bestMove = moveList.moves[i];
+
+                    if (!moveList.moves[i].Capture)
+                    {
+                        board.searchHistory[board.pieces[bestMove.FromSq], board.pieces[bestMove.ToSq]] += depth;
+                    }
+
                 }
             }
 
