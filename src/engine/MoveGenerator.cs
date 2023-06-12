@@ -22,7 +22,22 @@ namespace chessmag.engine
             return moveList;
         }
 
-        private static MoveList GeneratePawnMoves(Board board, MoveList moveList)
+        public static MoveList GenerateAllCaptures(Board board)
+        {
+            Assertions.CheckBoard(board);
+
+            var moveList = new MoveList();
+
+
+
+            moveList = GeneratePawnMoves(board, moveList, true);
+            moveList = GenerateSlidingMoves(board, moveList, true);
+            moveList = GenerateNonSlidingMoves(board, moveList, true);
+
+            return moveList;
+        }
+
+        private static MoveList GeneratePawnMoves(Board board, MoveList moveList, bool capturesOnly = false)
         {
             int color = board.sideToMove;
             int oppositeColor = color ^ 1;
@@ -36,7 +51,7 @@ namespace chessmag.engine
                 int sq120 = board.pieceList[pawnCode, pawn];
                 Assertions.SqOnBoard(sq120);
 
-                if (board.pieces[sq120 + (10 * directionMod)] == (int)Piece.NONE)
+                if (!capturesOnly && board.pieces[sq120 + (10 * directionMod)] == (int)Piece.NONE)
                 {
                     moveList.AddPawnMove(new Move(sq120, sq120 + (10 * directionMod)), board);
                     if (BBC.Sq120ToRank[sq120] == pawnStartRank && board.pieces[sq120 + (20 * directionMod)] == (int)Piece.NONE)
@@ -73,7 +88,7 @@ namespace chessmag.engine
             return moveList;
         }
 
-        private static MoveList GenerateSlidingMoves(Board board, MoveList moveList)
+        private static MoveList GenerateSlidingMoves(Board board, MoveList moveList, bool capturesOnly = false)
         {
             int color = board.sideToMove;
             int oppositeColor = color ^ 1;
@@ -123,8 +138,11 @@ namespace chessmag.engine
                                 break;
                             }
 
-                            // normal move
-                            moveList.AddQuietMove(new Move(sq120, t_sq120), board);
+                            if (!capturesOnly)
+                            {
+                                // normal move
+                                moveList.AddQuietMove(new Move(sq120, t_sq120), board);
+                            }
                             t_sq120 += direction;
                         }
                     }
@@ -133,7 +151,7 @@ namespace chessmag.engine
             return moveList;
         }
 
-        private static MoveList GenerateNonSlidingMoves(Board board, MoveList moveList)
+        private static MoveList GenerateNonSlidingMoves(Board board, MoveList moveList, bool capturesOnly = false)
         {
             int color = board.sideToMove;
             int oppositeColor = color ^ 1;
@@ -167,8 +185,11 @@ namespace chessmag.engine
                             continue;
                         }
 
-                        // normal move
-                        moveList.AddQuietMove(new Move(sq120, t_sq120), board);
+                        if (!capturesOnly)
+                        {
+                            // normal move
+                            moveList.AddQuietMove(new Move(sq120, t_sq120), board);
+                        }
                     }
                 }
             }

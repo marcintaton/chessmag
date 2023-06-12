@@ -43,10 +43,5 @@ namespace chessmag.engine
 
             return moveList;
         }
-
-        public static int Quiescence(int alpha, int beta, Board board, SearchInfo sInfo)
-        {
-            return 0;
-        }
     }
 }

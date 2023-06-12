@@ -8,12 +8,11 @@ namespace chessmag.engine
         public static ABResult AlphaBeta(int alpha, int beta, int depth, Board board, SearchInfo sInfo, bool doNULL)
         {
             Assertions.CheckBoard(board);
-
             if (depth == 0)
             {
-                sInfo.nodes++;
-                // run quiescence
-                return new ABResult(board, sInfo, Evaluation.Get(board));
+                // sInfo.nodes++;
+                // return new ABResult(board, sInfo, Evaluation.Get(board));
+                return Quiescence(alpha, beta, board, sInfo);
             }
 
             sInfo.nodes++;
