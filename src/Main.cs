@@ -10,15 +10,15 @@ namespace chessmag
     {
         private static void Main()
         {
-            var b = Fen.Parse(Constants.TestFEN2);
+            var b = Fen.Parse(Constants.TestFEN3);
 
             IO.PrintBoard(b);
 
-            // var info = new SearchInfo
-            // {
-            //     depth = 4
-            // };
-            // Search.SearchPosition(b, info);
+            var info = new SearchInfo
+            {
+                depth = 5
+            };
+            Search.SearchPosition(b, info);
 
             // var moveList = MoveGenerator.GenerateAllMoves(b);
 

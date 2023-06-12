@@ -39,6 +39,8 @@ namespace chessmag.engine
 
             for (int i = 0; i < moveList.count; i++)
             {
+                moveList = PickNextMove(i, moveList);
+
                 var moveRes = MoveCtrl.MakeMove(moveList.moves[i], board);
 
                 if (!moveRes.wasLegal)

@@ -22,6 +22,28 @@ namespace chessmag.engine
             return board;
         }
 
+        public static MoveList PickNextMove(int moveIndex, MoveList moveList)
+        {
+            Move temp;
+            int bestScore = 0;
+            int bestIndex = moveIndex;
+
+            for (int i = moveIndex; i < moveList.count; i++)
+            {
+                if (moveList.moves[i].score > bestScore)
+                {
+                    bestScore = moveList.moves[i].score;
+                    bestIndex = i;
+                }
+            }
+
+            temp = moveList.moves[moveIndex];
+            moveList.moves[moveIndex] = moveList.moves[bestIndex];
+            moveList.moves[bestIndex] = temp;
+
+            return moveList;
+        }
+
         public static int Quiescence(int alpha, int beta, Board board, SearchInfo sInfo)
         {
             return 0;
