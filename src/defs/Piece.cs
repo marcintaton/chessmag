@@ -17,6 +17,7 @@ namespace chessmag.defs
         public static readonly bool[] isPieceMin = new bool[] { false, false, false, true, true, false, false, false, false, true, true, false, false };
         public static readonly int[] pieceColor = new int[] { (int)Color.BOTH, (int)Color.WHITE, (int)Color.WHITE, (int)Color.WHITE, (int)Color.WHITE, (int)Color.WHITE, (int)Color.WHITE, (int)Color.BLACK, (int)Color.BLACK, (int)Color.BLACK, (int)Color.BLACK, (int)Color.BLACK, (int)Color.BLACK };
         public static readonly int[] pieceValue = new int[] { 0, 100, 500, 300, 300, 900, 10000, 100, 500, 300, 300, 900, 10000 };
+        public static readonly int[] VictimWorth = new int[] { 0, 100, 400, 200, 300, 500, 600, 100, 400, 200, 300, 500, 600 };
         public static readonly bool[] isPawn = new bool[] { false, true, false, false, false, false, false, true, false, false, false, false, false };
         public static readonly bool[] isKnight = new bool[] { false, false, false, true, false, false, false, false, false, true, false, false, false };
         public static readonly bool[] isKing = new bool[] { false, false, false, false, false, false, true, false, false, false, false, false, true };

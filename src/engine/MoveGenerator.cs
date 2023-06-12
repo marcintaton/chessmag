@@ -118,7 +118,7 @@ namespace chessmag.engine
                                 if (PieceData.pieceColor[t_piece] == oppositeColor)
                                 {
                                     // capture
-                                    moveList.AddCaptureMove(new Move(sq120, t_sq120, t_piece));
+                                    moveList.AddCaptureMove(new Move(sq120, t_sq120, t_piece), board.pieces[sq120]);
                                 }
                                 break;
                             }
@@ -162,7 +162,7 @@ namespace chessmag.engine
                             if (PieceData.pieceColor[t_piece] == oppositeColor)
                             {
                                 // capture
-                                moveList.AddCaptureMove(new Move(sq120, t_sq120, t_piece));
+                                moveList.AddCaptureMove(new Move(sq120, t_sq120, t_piece), board.pieces[sq120]);
                             }
                             continue;
                         }

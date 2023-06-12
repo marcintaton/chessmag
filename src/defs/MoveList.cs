@@ -19,14 +19,16 @@ namespace chessmag.defs
             count++;
         }
 
-        public void AddCaptureMove(Move move)
+        public void AddCaptureMove(Move move, int attacker)
         {
+            move.score = MvvLva.Scores[move.PceCaptured, attacker];
             moves[count] = move;
             count++;
         }
 
         public void AddEnPassantMove(Move move)
         {
+            move.score = MvvLva.PAWN_TAKES_PAWN;
             moves[count] = move;
             count++;
         }
@@ -39,18 +41,19 @@ namespace chessmag.defs
 
             int promotionRank = color == (int)Color.WHITE ? (int)Rank._7 : (int)Rank._2;
             int promPieceStart = color == (int)Color.WHITE ? (int)Piece.R : (int)Piece.r;
+            int attacker = color == (int)Color.WHITE ? (int)Piece.P : (int)Piece.P;
 
             if (BBC.Sq120ToRank[move.FromSq] == promotionRank)
             {
                 for (int i = 0; i < 4; i++)
                 {
                     move.PcePromoted = promPieceStart + i;
-                    if (move.Capture) AddCaptureMove(move); else AddQuietMove(move);
+                    if (move.Capture) AddCaptureMove(move, attacker); else AddQuietMove(move);
                 }
             }
             else
             {
-                if (move.Capture) AddCaptureMove(move); else AddQuietMove(move);
+                if (move.Capture) AddCaptureMove(move, attacker); else AddQuietMove(move);
             }
         }
     }
