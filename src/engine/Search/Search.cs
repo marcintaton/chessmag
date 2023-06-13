@@ -1,12 +1,19 @@
 using chessmag.defs;
+using chessmag.utils;
 
 namespace chessmag.engine
 {
     public static partial class Search
     {
-        public static void CheckUp()
+        public static SearchInfo CheckUp(SearchInfo sInfo)
         {
             // periodically test if time is up or search is interrupted
+            if (sInfo.timeSet && TimeUtils.GetSwMs() > sInfo.stopTime)
+            {
+                sInfo.stopped = true;
+            }
+
+            return sInfo;
         }
 
         public static Board PrepForSearch(Board board)

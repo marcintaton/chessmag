@@ -8,12 +8,12 @@ namespace chessmag.defs
         public long stopTime;
         public int depth;
         public int depthSet;
-        public int timeSet;
+        public bool timeSet;
         public int movesToGo;
         public int infinite;
         public long nodes;
         public int quit;
-        public int stopped;
+        public bool stopped;
         public float failHigh;
         public float failHighFirst;
 
@@ -21,7 +21,7 @@ namespace chessmag.defs
         {
             TimeUtils.stopwatch.Restart();
             startTime = TimeUtils.stopwatch.ElapsedMilliseconds;
-            stopped = 0;
+            stopped = false;
             nodes = 0;
             failHigh = 0;
             failHighFirst = 0;

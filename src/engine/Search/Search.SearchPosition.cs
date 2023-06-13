@@ -20,6 +20,10 @@ namespace chessmag.engine
                 var result = AlphaBeta(-Constants.Infinity, Constants.Infinity, currentDepth, board, sInfo, true);
 
                 // check for time constraints
+                if (sInfo.stopped)
+                {
+                    break;
+                }
 
                 board = result.board;
                 sInfo = result.sInfo;

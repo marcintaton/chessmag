@@ -10,6 +10,7 @@ namespace chessmag
     {
         private static void Main()
         {
+
             var b = Fen.Parse(Constants.TestFEN3);
 
             IO.PrintBoard(b);
@@ -19,6 +20,9 @@ namespace chessmag
                 depth = 6
             };
             Search.SearchPosition(b, info);
+
+            TimeUtils.stopwatch.Stop();
+            Console.WriteLine(TimeUtils.GetSwMs());
 
             // var moveList = MoveGenerator.GenerateAllMoves(b);
 

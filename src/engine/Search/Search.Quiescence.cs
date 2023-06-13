@@ -6,6 +6,11 @@ namespace chessmag.engine
     {
         public static ABResult Quiescence(int alpha, int beta, Board board, SearchInfo sInfo)
         {
+            if ((sInfo.nodes & 2047) == 0)
+            {
+                sInfo = CheckUp(sInfo);
+            }
+
             sInfo.nodes++;
 
             if (Repetition.Check(board) || board.fiftyMoveCtr >= 100)
@@ -54,6 +59,11 @@ namespace chessmag.engine
 
                 board = MoveCtrl.UnmakeMove(abRes.board);
                 sInfo = abRes.sInfo;
+
+                if (sInfo.stopped)
+                {
+                    return new ABResult(board, sInfo, 0);
+                }
 
                 if (abRes.score > alpha)
                 {
