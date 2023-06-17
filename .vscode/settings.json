@@ -4,8 +4,12 @@
     "bitboard",
     "Crazyhouse",
     "enpas",
+    "isready",
     "NOMOVE",
     "Perft",
-    "UCIIO"
+    "startpos",
+    "UCIIO",
+    "ucinewgame",
+    "uciok"
   ]
 }

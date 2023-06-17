@@ -12,7 +12,7 @@ namespace chessmag.defs
         public int movesToGo;
         public int infinite;
         public long nodes;
-        public int quit;
+        public bool quit;
         public bool stopped;
         public float failHigh;
         public float failHighFirst;
