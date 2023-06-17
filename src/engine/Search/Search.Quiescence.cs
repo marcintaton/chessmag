@@ -6,7 +6,7 @@ namespace chessmag.engine
     {
         public static ABResult Quiescence(int alpha, int beta, Board board, SearchInfo sInfo)
         {
-            if ((sInfo.nodes & 2047) == 0)
+            if ((sInfo.nodes & Constants.NodeCountCheckup) == 0)
             {
                 sInfo = CheckUp(sInfo);
             }

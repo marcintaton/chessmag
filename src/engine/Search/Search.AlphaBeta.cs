@@ -16,7 +16,7 @@ namespace chessmag.engine
                 return Quiescence(alpha, beta, board, sInfo);
             }
 
-            if ((sInfo.nodes & 2047) == 0)
+            if ((sInfo.nodes & Constants.NodeCountCheckup) == 0)
             {
                 sInfo = CheckUp(sInfo);
             }
