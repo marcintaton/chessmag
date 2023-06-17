@@ -1,4 +1,5 @@
 using chessmag.defs;
+using chessmag.protocols.UCI;
 using chessmag.utils;
 
 namespace chessmag.engine
@@ -33,10 +34,10 @@ namespace chessmag.engine
                 board.principalVariation = pvLine.line;
                 bestMove = board.principalVariation[0];
 
-                IO.PrintSearchInfo(bestMove, currentDepth, sInfo, pvLine);
+                UCIIO.Info(bestMove, currentDepth, sInfo.nodes, pvLine);
             }
 
-            IO.PrintScore(bestScore);
+            UCIIO.BestMove(bestMove);
         }
     }
 }

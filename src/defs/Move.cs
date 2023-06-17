@@ -60,6 +60,14 @@ namespace chessmag.defs
         public bool Capture { get => (move & captureMask) != 0x0; }
         public bool Promotion { get => (move & promotionMask) != 0x0; }
 
+        public string ScoreStr
+        {
+            get
+            {
+                return score > Constants.Infinity - Constants.MaxDepth ? "mate " + (Constants.Infinity - score) : "cp " + score.ToString();
+            }
+        }
+
         public override string ToString()
         {
             var prom = "";
@@ -70,7 +78,7 @@ namespace chessmag.defs
                 else if (PieceData.isBishop[PcePromoted]) prom = "b";
                 else if (PieceData.isKnight[PcePromoted]) prom = "n";
             }
-            return ((Square)FromSq).ToString() + ((Square)ToSq).ToString() + prom + " ; score = " + score;
+            return ((Square)FromSq).ToString() + ((Square)ToSq).ToString() + prom;
         }
     }
 }

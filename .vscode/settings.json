@@ -1,3 +1,11 @@
 {
-  "cSpell.words": ["bitboard", "Crazyhouse", "enpas", "Perft", "NOMOVE"]
+  "cSpell.words": [
+    "bestmove",
+    "bitboard",
+    "Crazyhouse",
+    "enpas",
+    "NOMOVE",
+    "Perft",
+    "UCIIO"
+  ]
 }

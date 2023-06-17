@@ -45,5 +45,21 @@ namespace chessmag.defs
             this.line = line;
             this.count = count;
         }
+
+        public override string ToString()
+        {
+            string output = "";
+
+            foreach (var move in line)
+            {
+                if (move.move == Move.NOMOVE)
+                {
+                    break;
+                }
+                output += move.ToString() + " ";
+            }
+
+            return output;
+        }
     }
 }

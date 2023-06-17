@@ -5,9 +5,9 @@ namespace chessmag.utils
     {
         public static readonly Stopwatch stopwatch = new();
 
-        public static double GetSwMs()
+        public static int GetSwMs()
         {
-            return (double)stopwatch.ElapsedTicks / 1000000;
+            return (int)stopwatch.ElapsedTicks / 1000000;
         }
     }
 }
