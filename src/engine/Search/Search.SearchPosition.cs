@@ -34,10 +34,10 @@ namespace chessmag.engine
                 board.principalVariation = pvLine.line;
                 bestMove = board.principalVariation[0];
 
-                UCIIO.Info(bestMove, currentDepth, sInfo.nodes, pvLine);
+                UCIIO.PrintInfo(bestMove, currentDepth, sInfo.nodes, pvLine);
             }
 
-            UCIIO.BestMove(bestMove);
+            UCIIO.PrintBestMove(bestMove);
         }
     }
 }
