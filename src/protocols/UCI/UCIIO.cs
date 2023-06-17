@@ -5,7 +5,7 @@ using chessmag.utils;
 namespace chessmag.protocols.UCI
 {
 
-    public static class UCIIO
+    public static partial class UCIIO
     {
         public static void BestMove(Move move)
         {
@@ -24,7 +24,7 @@ namespace chessmag.protocols.UCI
 
         public static void Author()
         {
-            Console.Write("id author Marcin Tatoń\n");
+            Console.Write("id author MarcinTatoń\n");
         }
 
         public static void UCIOk()
@@ -35,13 +35,6 @@ namespace chessmag.protocols.UCI
         public static BoardWInfo ParseGo(string command, Board board, SearchInfo sInfo)
         {
             return new BoardWInfo(board, sInfo);
-        }
-
-        public static Board ParsePosition(string command, Board board)
-        {
-
-            ///
-            return board;
         }
 
         internal static void ReadyOk()
