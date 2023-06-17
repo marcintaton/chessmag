@@ -32,11 +32,6 @@ namespace chessmag.protocols.UCI
             Console.Write("uciok\n");
         }
 
-        public static BoardWInfo ParseGo(string command, Board board, SearchInfo sInfo)
-        {
-            return new BoardWInfo(board, sInfo);
-        }
-
         internal static void ReadyOk()
         {
             Console.Write("readyok\n");

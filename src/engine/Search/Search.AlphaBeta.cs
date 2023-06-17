@@ -19,6 +19,11 @@ namespace chessmag.engine
             if ((sInfo.nodes & Constants.NodeCountCheckup) == 0)
             {
                 sInfo = CheckUp(sInfo);
+
+                if (sInfo.stopped || sInfo.quit)
+                {
+                    return new ABResult(board, sInfo, 0);
+                }
             }
 
             sInfo.nodes++;

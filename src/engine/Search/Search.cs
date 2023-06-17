@@ -1,4 +1,5 @@
 using chessmag.defs;
+using chessmag.protocols.UCI;
 using chessmag.utils;
 
 namespace chessmag.engine
@@ -13,7 +14,9 @@ namespace chessmag.engine
                 sInfo.stopped = true;
             }
 
-            return sInfo;
+            var interrupt = IO.PeekStdIn();
+
+            return UCIIO.ParseInterrupt(interrupt, sInfo);
         }
 
         public static Board PrepForSearch(Board board)

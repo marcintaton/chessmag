@@ -4,7 +4,6 @@ namespace chessmag.defs
 {
     public struct SearchInfo
     {
-        public long startTime;
         public long stopTime;
         public int depth;
         public int depthSet;
@@ -20,7 +19,6 @@ namespace chessmag.defs
         public void Reset()
         {
             TimeUtils.stopwatch.Restart();
-            startTime = TimeUtils.stopwatch.ElapsedMilliseconds;
             stopped = false;
             nodes = 0;
             failHigh = 0;

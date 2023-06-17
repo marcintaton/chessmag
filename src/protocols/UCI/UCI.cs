@@ -1,5 +1,6 @@
 using chessmag.defs;
 using chessmag.engine;
+using chessmag.utils;
 
 namespace chessmag.protocols.UCI
 {
@@ -16,7 +17,6 @@ namespace chessmag.protocols.UCI
             {
                 depth = 6,
                 timeSet = true,
-                startTime = 0,
                 stopTime = 500
             };
 
@@ -45,9 +45,12 @@ namespace chessmag.protocols.UCI
                 }
                 else if (input.Contains("go"))
                 {
+                    var tokenSource = new CancellationTokenSource();
+                    IO.StartPeeking(tokenSource.Token);
                     var result = UCIIO.ParseGo(input, board, sInfo);
                     board = result.board;
                     sInfo = result.sInfo;
+                    tokenSource.Cancel();
                     continue;
                 }
                 else if (input.Contains("quit"))
