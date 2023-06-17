@@ -45,12 +45,9 @@ namespace chessmag.protocols.UCI
                 }
                 else if (input.Contains("go"))
                 {
-                    var tokenSource = new CancellationTokenSource();
-                    IO.StartPeeking(tokenSource.Token);
                     var result = UCIIO.ParseGo(input, board, sInfo);
                     board = result.board;
                     sInfo = result.sInfo;
-                    tokenSource.Cancel();
                     continue;
                 }
                 else if (input.Contains("quit"))

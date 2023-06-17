@@ -14,7 +14,7 @@ namespace chessmag.engine
                 sInfo.stopped = true;
             }
 
-            var interrupt = IO.PeekStdIn();
+            var interrupt = "";
 
             return UCIIO.ParseInterrupt(interrupt, sInfo);
         }
