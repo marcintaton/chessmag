@@ -19,12 +19,12 @@ namespace chessmag.protocols.UCI
 
         public static void Name()
         {
-            Console.Write("id name Chessmag\n");
+            Console.Write($"id name {Constants.EngineName}\n");
         }
 
         public static void Author()
         {
-            Console.Write("id author MarcinTatoń\n");
+            Console.Write($"id author {Constants.EngineAuthor}\n");
         }
 
         public static void UCIOk()

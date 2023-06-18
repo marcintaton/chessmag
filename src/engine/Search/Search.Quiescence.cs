@@ -18,7 +18,7 @@ namespace chessmag.engine
 
             sInfo.nodes++;
 
-            if (Repetition.Check(board) || board.fiftyMoveCtr >= 100)
+            if ((BoardState.CheckRepetition(board) || board.fiftyMoveCtr >= 100) && board.ply != 0)
             {
                 // draw by repetition or 50 move rule
                 return new ABResult(board, sInfo, 0);
