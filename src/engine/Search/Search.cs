@@ -16,7 +16,15 @@ namespace chessmag.engine
 
             var interrupt = "";
 
-            return UCIIO.ParseInterrupt(interrupt, sInfo);
+            if (sInfo.protocol == Protocol.UCI)
+            {
+                return UCIIO.ParseInterrupt(interrupt, sInfo);
+            }
+            else
+            {
+                // implement other protocols !!!
+                return sInfo;
+            }
         }
 
         public static Board PrepForSearch(Board board)

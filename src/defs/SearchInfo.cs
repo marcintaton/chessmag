@@ -15,6 +15,7 @@ namespace chessmag.defs
         public bool stopped;
         public float failHigh;
         public float failHighFirst;
+        public Protocol protocol;
 
         public void Reset()
         {

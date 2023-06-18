@@ -32,11 +32,16 @@ namespace chessmag.engine
                 board.principalVariation = pvLine.line;
                 bestMove = board.principalVariation[0];
 
-                UCIIO.Info(bestMove, currentDepth, sInfo.nodes, pvLine);
+                if (sInfo.protocol == Protocol.UCI)
+                {
+                    UCIIO.Info(bestMove, currentDepth, sInfo.nodes, pvLine);
+                }
             }
 
-            UCIIO.BestMove(bestMove);
-
+            if (sInfo.protocol == Protocol.UCI)
+            {
+                UCIIO.BestMove(bestMove);
+            }
             return new BoardWInfo(board, sInfo);
         }
     }

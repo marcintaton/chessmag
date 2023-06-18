@@ -17,7 +17,8 @@ namespace chessmag.protocols.UCI
             {
                 depth = 6,
                 timeSet = true,
-                stopTime = 500
+                stopTime = 500,
+                protocol = Protocol.UCI
             };
 
             while (!sInfo.quit)
