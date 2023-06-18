@@ -13,6 +13,7 @@
     "startpos",
     "UCIIO",
     "ucinewgame",
-    "uciok"
+    "uciok",
+    "XBOARD"
   ]
 }
