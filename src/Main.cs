@@ -12,11 +12,7 @@ namespace chessmag
     {
         private static void Main()
         {
-            // UCI.MainLoop();
-
-            Board board = Fen.Parse("K7/8/1q6/8/8/8/8/7k w - - 0 1");
-
-            XBoard.CheckGameState(board);
+            XBoard.Loop();
         }
     }
 }

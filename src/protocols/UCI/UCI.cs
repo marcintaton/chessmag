@@ -6,7 +6,7 @@ namespace chessmag.protocols.UCI
 {
     public static class UCI
     {
-        public static void MainLoop()
+        public static void Loop()
         {
             UCIIO.Name();
             UCIIO.Author();
@@ -29,7 +29,8 @@ namespace chessmag.protocols.UCI
                 {
                     continue;
                 }
-                else if (input.Contains("isready"))
+
+                if (input.Contains("isready"))
                 {
                     UCIIO.ReadyOk();
                     continue;

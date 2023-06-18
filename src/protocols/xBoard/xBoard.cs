@@ -3,42 +3,34 @@ using chessmag.engine;
 
 namespace chessmag.protocols.xBoard
 {
-    public static class XBoard
+    public static partial class XBoard
     {
-        public static bool CheckGameState(Board board)
+        public static void Loop()
         {
-            if (BoardState.DrawBy50MoveRule(board))
+            var board = new Board();
+            var sInfo = new SearchInfo
             {
-                XBoardIO.Claim50RuleDraw();
-                return true;
-            }
+                depth = 6,
+                timeSet = true,
+                stopTime = 500,
+                protocol = Protocol.XBOARD
+            };
 
-            if (BoardState.CheckThreeFold(board))
+            while (!sInfo.quit)
             {
-                XBoardIO.Claim3FoldRepDraw();
-                return true;
-            }
+                var input = Console.ReadLine();
 
-            if (BoardState.DrawByMaterial(board))
-            {
-                XBoardIO.ClaimMaterialDraw();
-                return true;
-            }
+                if (input == "\n" || input == null)
+                {
+                    continue;
+                }
 
-            var gameResult = BoardState.CheckOrStaleMate(board);
-
-            if (gameResult == GameResult.CHECKMATE)
-            {
-                XBoardIO.ClaimMate(board.sideToMove ^ 1);
-                return true;
+                if (input.Contains("quit"))
+                {
+                    sInfo.quit = true;
+                    break;
+                }
             }
-            else if (gameResult == GameResult.STALEMATE)
-            {
-                XBoardIO.ClaimStalemate();
-                return true;
-            }
-
-            return false;
         }
     }
 }
