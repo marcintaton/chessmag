@@ -16,6 +16,10 @@ namespace chessmag.defs
         public float failHigh;
         public float failHighFirst;
         public Protocol protocol;
+        // only required for xboard and console protocols
+        // UCI protocol is always verbose and doesn't consult this variable
+        // Chessmag protocol is always silent, and logs everything to log files
+        public bool verbose;
 
         public void Reset()
         {

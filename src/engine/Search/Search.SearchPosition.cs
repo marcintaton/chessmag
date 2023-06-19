@@ -1,3 +1,5 @@
+using System.Diagnostics;
+using System.Net.Sockets;
 using chessmag.defs;
 using chessmag.protocols.UCI;
 using chessmag.utils;
@@ -36,11 +38,27 @@ namespace chessmag.engine
                 {
                     UCIIO.Info(bestMove, currentDepth, sInfo.nodes, pvLine);
                 }
+                else if (sInfo.protocol == Protocol.XBOARD && sInfo.verbose)
+                {
+                    // print xboard response - depth, score, time, nodes, pv
+                }
+                else if (sInfo.protocol == Protocol.CONSOLE && sInfo.verbose)
+                {
+                    // print console response - depth, score, time, nodes, pv
+                }
             }
 
             if (sInfo.protocol == Protocol.UCI)
             {
                 UCIIO.BestMove(bestMove);
+            }
+            else if (sInfo.protocol == Protocol.XBOARD)
+            {
+                // send xboard move
+            }
+            else if (sInfo.protocol == Protocol.CONSOLE)
+            {
+                // print console info and exec moveff
             }
             return new BoardWInfo(board, sInfo);
         }

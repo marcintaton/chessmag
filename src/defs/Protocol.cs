@@ -4,6 +4,7 @@ namespace chessmag.defs
     {
         UCI,
         XBOARD,
-        CHESSMAG
+        CONSOLE,
+        CHESSMAG,
     }
 }

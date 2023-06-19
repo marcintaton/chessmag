@@ -15,7 +15,8 @@ namespace chessmag.protocols.xBoard
                 depth = 6,
                 timeSet = true,
                 stopTime = 500,
-                protocol = Protocol.XBOARD
+                protocol = Protocol.XBOARD,
+                verbose = true
             };
 
             int depth = -1;
