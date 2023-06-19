@@ -100,14 +100,18 @@ namespace chessmag.protocols.UCI
             {
                 time = moveTime;
                 movesToGo = 1;
+                sInfo.stopTime = time;
+
             }
 
-            if (time != -1)
+            if (time != -1 && moveTime == -1)
             {
                 sInfo.timeSet = true;
-                time /= movesToGo;
-                time -= 50;
-                sInfo.stopTime = time + inc;
+                sInfo.stopTime = TimeManagement.GetNextMoveTime(board, new TimeControl()
+                {
+                    time = time,
+                    inc = inc
+                });
             }
 
             sInfo.depth = depth == -1 ? Constants.MaxDepth : depth;

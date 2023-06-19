@@ -16,6 +16,16 @@ namespace chessmag.protocols.xBoard
                 protocol = Protocol.XBOARD
             };
 
+            int depth = -1;
+            int movesToGo = 30;
+            int movetime = -1;
+            int time = -1;
+            int increment = 0;
+            int engineSide = (int)Color.BOTH;
+            int timeLeft;
+            int movesPerSecond;
+            Move move = Move.NONE;
+
             while (!sInfo.quit)
             {
                 var input = Console.ReadLine();
