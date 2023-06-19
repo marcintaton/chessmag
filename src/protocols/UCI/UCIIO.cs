@@ -4,9 +4,13 @@ using chessmag.utils;
 
 namespace chessmag.protocols.UCI
 {
-
     public static partial class UCIIO
     {
+        public static string? Read()
+        {
+            return Console.ReadLine();
+        }
+
         public static void BestMove(Move move)
         {
             Console.Write($"bestmove {move}\n");

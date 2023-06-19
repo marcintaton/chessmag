@@ -23,7 +23,7 @@ namespace chessmag.protocols.UCI
 
             while (!sInfo.quit)
             {
-                var input = Console.ReadLine();
+                var input = UCIIO.Read();
 
                 if (input == "\n" || input == null)
                 {
@@ -35,34 +35,39 @@ namespace chessmag.protocols.UCI
                     UCIIO.ReadyOk();
                     continue;
                 }
-                else if (input.Contains("position"))
+
+                if (input.Contains("position"))
                 {
                     board = UCIIO.ParsePosition(input, board);
                     continue;
                 }
-                else if (input.Contains("ucinewgame"))
+
+                if (input.Contains("ucinewgame"))
                 {
                     board = UCIIO.ParsePosition("position startpos\n", board);
                     continue;
                 }
-                else if (input.Contains("go"))
+
+                if (input.Contains("go"))
                 {
                     var result = UCIIO.ParseGo(input, board, sInfo);
                     board = result.board;
                     sInfo = result.sInfo;
                     continue;
                 }
-                else if (input.Contains("quit"))
+
+                if (input.Contains("quit"))
                 {
                     sInfo.quit = true;
                     break;
                 }
-                else if (input.Contains("uci"))
+
+                if (input.Contains("uci"))
                 {
                     UCIIO.Name();
                     UCIIO.Author();
                     UCIIO.UCIOk();
-                    continue;
+                    // continue;
                 }
             }
         }
