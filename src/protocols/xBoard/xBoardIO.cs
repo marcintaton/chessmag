@@ -4,6 +4,11 @@ namespace chessmag.protocols.xBoard
 {
     public static class XBoardIO
     {
+        public static string? Read()
+        {
+            return Console.ReadLine();
+        }
+
         public static void Claim50RuleDraw()
         {
             Console.Write($"1/2-1/2 {{fity move rule (claimed by {Constants.EngineName})}}\n");
@@ -28,6 +33,32 @@ namespace chessmag.protocols.xBoard
         public static void ClaimStalemate()
         {
             Console.Write($"1/2-1/2 {{stalemate (claimed by {Constants.EngineName})}}\n");
+        }
+
+        public static void SetFeatures()
+        {
+            Console.Write("feature ping=1 setboard=1 colors=0 usermove=1 variants=crazyhouse\n");
+            Console.Write("feature done=1\n");
+        }
+
+        public static void PingPong(string input)
+        {
+            Console.Write($"pong {input.Split(' ')[1]}\n");
+        }
+
+        public static int ParseNumber(string input, int index)
+        {
+            return int.Parse(input.Split(' ')[index]);
+        }
+
+        public static string ParseSetboardFen(string input)
+        {
+            return input[(input.IndexOf(' ') + 1)..];
+        }
+
+        internal static string ParseMoveString(string input)
+        {
+            return input.Split(' ')[1];
         }
     }
 }

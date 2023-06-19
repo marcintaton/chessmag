@@ -9,11 +9,14 @@
     "movetime",
     "NOMOVE",
     "Perft",
+    "protover",
     "readyok",
+    "setboard",
     "startpos",
     "UCIIO",
     "ucinewgame",
     "uciok",
+    "usermove",
     "XBOARD"
   ]
 }
