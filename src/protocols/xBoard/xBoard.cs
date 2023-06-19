@@ -20,7 +20,7 @@ namespace chessmag.protocols.xBoard
             };
 
             int depth = -1;
-            int movesToGo = 30;
+            int[] movesToGo = new int[] { 30, 30 };
             int moveTime = -1;
             int time = -1;
             int increment = 0;
@@ -111,6 +111,7 @@ namespace chessmag.protocols.xBoard
 
                 if (input.StartsWith("usermove "))
                 {
+                    movesToGo[board.sideToMove]--;
                     move = IO.ParseClassicalMove(XBoardIO.ParseMoveString(input), board);
                     if (move.move == Move.NOMOVE) continue;
                     board = MoveCtrl.MakeMove(move, board).board;
