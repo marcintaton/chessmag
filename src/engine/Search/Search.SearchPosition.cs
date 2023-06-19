@@ -2,6 +2,8 @@ using System.Diagnostics;
 using System.Net.Sockets;
 using chessmag.defs;
 using chessmag.protocols.UCI;
+using chessmag.protocols.UserMode;
+using chessmag.protocols.xBoard;
 using chessmag.utils;
 
 namespace chessmag.engine
@@ -40,11 +42,11 @@ namespace chessmag.engine
                 }
                 else if (sInfo.protocol == Protocol.XBOARD && sInfo.verbose)
                 {
-                    // print xboard response - depth, score, time, nodes, pv
+                    XBoardIO.Info(bestMove, currentDepth, sInfo.nodes, pvLine);
                 }
-                else if (sInfo.protocol == Protocol.CONSOLE && sInfo.verbose)
+                else if (sInfo.protocol == Protocol.USER && sInfo.verbose)
                 {
-                    // print console response - depth, score, time, nodes, pv
+                    UserModeIO.Info(bestMove, currentDepth, sInfo.nodes, pvLine);
                 }
             }
 
@@ -54,11 +56,14 @@ namespace chessmag.engine
             }
             else if (sInfo.protocol == Protocol.XBOARD)
             {
-                // send xboard move
+                XBoardIO.BestMove(bestMove);
+                board = MoveCtrl.MakeMove(bestMove, board).board;
             }
-            else if (sInfo.protocol == Protocol.CONSOLE)
+            else if (sInfo.protocol == Protocol.USER)
             {
-                // print console info and exec moveff
+                UserModeIO.BestMove(bestMove);
+                board = MoveCtrl.MakeMove(bestMove, board).board;
+                IO.PrintBoard(board, false);
             }
             return new BoardWInfo(board, sInfo);
         }

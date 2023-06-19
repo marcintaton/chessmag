@@ -1,4 +1,5 @@
 using chessmag.defs;
+using chessmag.utils;
 
 namespace chessmag.protocols.xBoard
 {
@@ -56,9 +57,19 @@ namespace chessmag.protocols.xBoard
             return input[(input.IndexOf(' ') + 1)..];
         }
 
-        internal static string ParseMoveString(string input)
+        public static string ParseMoveString(string input)
         {
             return input.Split(' ')[1];
+        }
+
+        public static void Info(Move bestMove, int depth, long nodes, PVLine pvLine)
+        {
+            Console.Write($"{depth} {bestMove.score} {TimeUtils.GetSwMs()} {nodes} pv {pvLine}\n");
+        }
+
+        public static void BestMove(Move move)
+        {
+            Console.Write($"move {move}\n");
         }
     }
 }

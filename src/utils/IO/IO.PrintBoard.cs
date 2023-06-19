@@ -6,7 +6,7 @@ namespace chessmag.utils
 {
     public static partial class IO
     {
-        public static void PrintBoard(Board board)
+        public static void PrintBoard(Board board, bool verbose = true)
         {
             Console.WriteLine("\n--------------------------------");
             Console.WriteLine("Game Board\n");
@@ -28,21 +28,24 @@ namespace chessmag.utils
             Console.Write("\n    a b c d e f g h\n");
             Console.WriteLine();
 
-            Console.WriteLine("Side to move: " + (Color)board.sideToMove);
-            Console.Write(
-                "Castling rights: {0}{1}{2}{3}",
-                (CastlingRights)(board.castlingRights & (int)CastlingRights.K) != CastlingRights.NONE ? (CastlingRights)(board.castlingRights & (int)CastlingRights.K) : "",
-                (CastlingRights)(board.castlingRights & (int)CastlingRights.Q) != CastlingRights.NONE ? (CastlingRights)(board.castlingRights & (int)CastlingRights.Q) : "",
-                (CastlingRights)(board.castlingRights & (int)CastlingRights.k) != CastlingRights.NONE ? (CastlingRights)(board.castlingRights & (int)CastlingRights.k) : "",
-                (CastlingRights)(board.castlingRights & (int)CastlingRights.q) != CastlingRights.NONE ? (CastlingRights)(board.castlingRights & (int)CastlingRights.q) : "");
-            if (board.castlingRights == (int)CastlingRights.NONE) Console.Write("-\n"); else Console.Write("\n");
-            Console.WriteLine("EnPassant Square " + (Square)board.enPasSq);
-            Console.WriteLine("Move: " + Math.Ceiling((double)board.gamePly / 2));
-            Console.WriteLine("Ply: " + board.gamePly);
-            Console.WriteLine("Fifty moves: " + board.fiftyMoveCtr);
-            Console.WriteLine("Position ID: " + Convert.ToString((long)board.positionHash, 16).ToUpper());
-            Console.WriteLine("Materials: white - " + board.materials[(int)Color.WHITE] + "; black - " + board.materials[(int)Color.BLACK] + ";");
-            Console.WriteLine();
+            if (verbose)
+            {
+                Console.WriteLine("Side to move: " + (Color)board.sideToMove);
+                Console.Write(
+                     "Castling rights: {0}{1}{2}{3}",
+                     (CastlingRights)(board.castlingRights & (int)CastlingRights.K) != CastlingRights.NONE ? (CastlingRights)(board.castlingRights & (int)CastlingRights.K) : "",
+                     (CastlingRights)(board.castlingRights & (int)CastlingRights.Q) != CastlingRights.NONE ? (CastlingRights)(board.castlingRights & (int)CastlingRights.Q) : "",
+                     (CastlingRights)(board.castlingRights & (int)CastlingRights.k) != CastlingRights.NONE ? (CastlingRights)(board.castlingRights & (int)CastlingRights.k) : "",
+                     (CastlingRights)(board.castlingRights & (int)CastlingRights.q) != CastlingRights.NONE ? (CastlingRights)(board.castlingRights & (int)CastlingRights.q) : "");
+                if (board.castlingRights == (int)CastlingRights.NONE) Console.Write("-\n"); else Console.Write("\n");
+                Console.WriteLine("EnPassant Square " + (Square)board.enPasSq);
+                Console.WriteLine("Move: " + Math.Ceiling((double)board.gamePly / 2));
+                Console.WriteLine("Ply: " + board.gamePly);
+                Console.WriteLine("Fifty moves: " + board.fiftyMoveCtr);
+                Console.WriteLine("Position ID: " + Convert.ToString((long)board.positionHash, 16).ToUpper());
+                Console.WriteLine("Materials: white - " + board.materials[(int)Color.WHITE] + "; black - " + board.materials[(int)Color.BLACK] + ";");
+                Console.WriteLine();
+            }
         }
     }
 }
