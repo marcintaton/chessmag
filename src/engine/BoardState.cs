@@ -41,6 +41,7 @@ namespace chessmag.engine
 
         public static bool DrawByMaterial(Board board)
         {
+            // Handle 2 same color bishops on one side. Theoretically should not happen
             if (board.piecesNum[(int)Piece.P] != 0 || board.piecesNum[(int)Piece.p] != 0) return false;
             if (board.piecesNum[(int)Piece.R] != 0 || board.piecesNum[(int)Piece.r] != 0) return false;
             if (board.piecesNum[(int)Piece.Q] != 0 || board.piecesNum[(int)Piece.q] != 0) return false;
